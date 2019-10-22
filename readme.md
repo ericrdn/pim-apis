@@ -1,15 +1,17 @@
 # Criação das Apis para Controle de Frotas
 
-O que é preciso ter instalado no computador para começar?
+### O que é preciso ter instalado no computador para começar?
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) ou [Visual Studio Code](https://code.visualstudio.com/download)
 * Ter o SDK do .NET 3.0 instalado na maquina, pode ser baixado por meio do link: [Download .NET Core 3.0](https://dotnet.microsoft.com/download)
 * [PostMan](https://www.getpostman.com/downloads/) ou [Insomnia](https://insomnia.rest/) para gerar as requisições para a API
 
-O que preciso saber?
+### O que preciso saber?
 
 * O que é uma API REST
 * Requisições HTTP (Basico)
+* [Versionamento GIT Basic](https://www.youtube.com/results?search_query=git+tutorial+para+iniciantes)
+* Usar o [PostMan](https://www.youtube.com/watch?v=H16GUC9Svyk) ou Insomnia
 
 ### Por onde começar?
 
@@ -36,6 +38,17 @@ Dentro da API vamos criar um Controller, que irá gerenciar essas ações, que n
 Vou abordar como implementar cada metodo abaixo:
 
 ## Pontos na implementação:
+
+### Estrutura de Pastas
+
+Assim como a API de multas deverá ser mantido o mesmo modelo de nome da pasta e projeto.
+
+Exemplo:
+
+* api-multas
+* api-veiculos
+
+Para iniciar basta baixar o zip e copiar e colar a api-multas e renomear as pastas e arquivos para o nome da sua api, no final me envia o projeto compactado que eu subo no GIT, *se conseguir subir no GitHub melhor ainda.*
 
 ### Método **ExecutarProcedure**
 
