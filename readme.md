@@ -6,12 +6,13 @@
 * Ter o SDK do .NET 3.0 instalado na maquina, pode ser baixado por meio do link: [Download .NET Core 3.0](https://dotnet.microsoft.com/download)
 * [PostMan](https://www.getpostman.com/downloads/) ou [Insomnia](https://insomnia.rest/) para gerar as requisições para a API
 
-### O que preciso saber?
+### O que preciso conhecer?
 
 * O que é uma API REST
 * Requisições HTTP (Basico)
 * [Versionamento GIT Basic](https://www.youtube.com/results?search_query=git+tutorial+para+iniciantes)
 * Usar o [PostMan](https://www.youtube.com/watch?v=H16GUC9Svyk) ou Insomnia
+* GIT para controlar o versionamento dos arquivos - [Download](https://gitforwindows.org/)
 
 ### Por onde começar?
 
@@ -49,6 +50,13 @@ Exemplo:
 * api-veiculos
 
 Para iniciar basta baixar o zip e copiar e colar a api-multas e renomear as pastas e arquivos para o nome da sua api, no final me envia o projeto compactado que eu subo no GIT, *se conseguir subir no GitHub melhor ainda.*
+
+**Para executar o projeto via linha de comando:**
+
+```console
+C:\PIM> cd \api-multas
+C:\PIM\api-multas> dotnet run
+```
 
 ### Método **ExecutarProcedure**
 
