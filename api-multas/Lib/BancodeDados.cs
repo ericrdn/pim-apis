@@ -24,7 +24,7 @@ namespace Funcoes.BancodeDados
 
     public class BancodeDados
     {
-        private static string ConnStr = @"Server=tcp:dbfrotas.database.windows.net,1433;Initial Catalog=FrotaVeiculos;Persist Security Info=False;User ID=eric;Password=Jw@Gerlane584112;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        private static string ConnStr = @"Server=tcp:pim2019.ddns.net,1433;Initial Catalog=FrotaVeiculos;Persist Security Info=False;User ID=ususistema;Password=PIM@2019;MultipleActiveResultSets=False;TrustServerCertificate=False;Connection Timeout=30;";
 
         private SqlConnection _conn;
 
