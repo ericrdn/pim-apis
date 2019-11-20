@@ -48,7 +48,7 @@ namespace api_usuarios.Controllers
                 ParametrosEntrada.Add(new SqlParameter("@CUCNH", modelo.Cnh));
                 ParametrosEntrada.Add(new SqlParameter("@CURG", modelo.Rg));
                 ParametrosEntrada.Add(new SqlParameter("@CUTPUSUARIO", modelo.TpUsuario));
-                ParametrosEntrada.Add(new SqlParameter("@CUIDENDERECO", modelo.IdEndereço));
+                ParametrosEntrada.Add(new SqlParameter("@CUIDENDERECO", modelo.IdEndereco));
                 ParametrosEntrada.Add(new SqlParameter("@CUCARTEIRATRABALHO", modelo.CarteiraTrabalho));
 
                 await new BancodeDados().ExecutarProcedure<Usuario>(
@@ -99,7 +99,7 @@ namespace api_usuarios.Controllers
                 ParametrosEntrada.Add(new SqlParameter("@CUCNH", modelo.Cnh));
                 ParametrosEntrada.Add(new SqlParameter("@CURG", modelo.Rg));
                 ParametrosEntrada.Add(new SqlParameter("@CUTPUSUARIO", modelo.TpUsuario));
-                ParametrosEntrada.Add(new SqlParameter("@CUIDENDERECO", modelo.IdEndereço));
+                ParametrosEntrada.Add(new SqlParameter("@CUIDENDERECO", modelo.IdEndereco));
                 ParametrosEntrada.Add(new SqlParameter("@CUCARTEIRATRABALHO", modelo.CarteiraTrabalho));
 
                 await new BancodeDados().ExecutarProcedure<Usuario>(

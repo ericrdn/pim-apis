@@ -43,7 +43,7 @@ namespace api_veiculos.Controllers
             try
             {
                 List<SqlParameter> ParametrosEntrada = new List<SqlParameter>();
-                ParametrosEntrada.Add(new SqlParameter("@TVDESCRICAOTIPO", modelo.DescriçãoTipo));
+                ParametrosEntrada.Add(new SqlParameter("@TVDESCRICAOTIPO", modelo.DescricaoTipo));
 
                 await new BancodeDados().ExecutarProcedure<Veiculo>(
                     "SP_INCLUIR_TVEICULOS", ParametrosEntrada.ToArray());
@@ -88,7 +88,7 @@ namespace api_veiculos.Controllers
                 List<SqlParameter> ParametrosEntrada = new List<SqlParameter>();
 
                 ParametrosEntrada.Add(new SqlParameter("@TVID", modelo.IdVeiculo));
-                ParametrosEntrada.Add(new SqlParameter("@TVDESCRICAOTIPO", modelo.DescriçãoTipo));
+                ParametrosEntrada.Add(new SqlParameter("@TVDESCRICAOTIPO", modelo.DescricaoTipo));
 
                 await new BancodeDados().ExecutarProcedure<Veiculo>(
                     "SP_ALTERAR_TVEICULOS", ParametrosEntrada.ToArray());

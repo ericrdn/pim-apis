@@ -19,7 +19,7 @@ namespace api_veiculos
         public int IdVeiculo { get; set; }
 
         [Coluna("TVDESCRICAOTIPO")]
-        public string DescriçãoTipo { get; set; }
+        public string DescricaoTipo { get; set; }
 
     }
 
