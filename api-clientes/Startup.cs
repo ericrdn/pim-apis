@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -16,6 +17,7 @@ namespace api_usuarios
 {
     public class Startup
     {
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -30,7 +32,7 @@ namespace api_usuarios
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Clientes", Version = "v1" });
             });
         }
 
@@ -42,15 +44,31 @@ namespace api_usuarios
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+            });
+
             app.UseHttpsRedirection();
 
-            app.UseSwagger();
+            string RotaConfigurada = Environment.GetEnvironmentVariable("ROTA");
+
+            if (string.IsNullOrEmpty(RotaConfigurada))
+                RotaConfigurada = "api/clientes";
+
+
+            app.UseSwagger(c =>
+            {
+
+                c.RouteTemplate = RotaConfigurada + "/api-docs/{documentName}/swagger.json";
+            });
 
             app.UseRouting();
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.SwaggerEndpoint($"/{RotaConfigurada}/api-docs/v1/swagger.json", "My API V1");
+                c.RoutePrefix = RotaConfigurada;
             });
 
             app.UseAuthorization();

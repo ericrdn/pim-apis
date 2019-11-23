@@ -1,0 +1,15 @@
+version: "3"
+
+networks:
+  rede:
+
+services:
+  api-clientes:
+    build: ./api-clientes
+    image: "api-clientes"
+    networks:
+      - rede
+    environment:
+      - ROTA=api/clientes
+    ports:
+      - "5001:80"

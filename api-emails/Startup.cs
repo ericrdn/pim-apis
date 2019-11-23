@@ -45,16 +45,28 @@ namespace api_usuarios
 
             app.UseHttpsRedirection();
 
-            app.UseSwagger();
+            string RotaConfigurada = Environment.GetEnvironmentVariable("ROTA");
+
+            if (string.IsNullOrEmpty(RotaConfigurada))
+                RotaConfigurada = "api/clientes";
+
+
+            app.UseSwagger(c =>
+            {
+
+                c.RouteTemplate = RotaConfigurada + "/api-docs/{documentName}/swagger.json";
+            });
 
             app.UseRouting();
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.SwaggerEndpoint($"/{RotaConfigurada}/api-docs/v1/swagger.json", "My API V1");
+                c.RoutePrefix = RotaConfigurada;
             });
 
             app.UseAuthorization();
+
 
             app.UseEndpoints(endpoints =>
             {
