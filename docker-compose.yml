@@ -11,5 +11,3 @@ services:
       - rede
     environment:
       - ROTA=api/clientes
-    ports:
-      - "5001:80"
