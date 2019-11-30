@@ -1,0 +1,1 @@
+/usr/src/app/scripts.sh & /opt/mssql/bin/sqlservr

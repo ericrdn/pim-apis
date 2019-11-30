@@ -4,28 +4,33 @@ networks:
   rede:
 
 services:
-  ngnix-proxy:
-    build: ./ngnix-proxy
-    image: "ngnix-proxy"
+  banco-dados:
+    build: ./banco-sql
+    image: "banco-sql"
     networks:
       - rede
     ports:
-      - "80:80"
-
-  api-clientes:
-    build: ./api-clientes
-    image: "api-clientes"
-    container_name: api-clientes
-    networks:
-      - rede
-    environment:
-      - ROTA=api/clientes
-
-  api-creembolsos:
-    build: ./api-creembolsos
-    image: "api-creembolsos"
-    container_name: api-creembolsos
-    networks:
-      - rede
-    environment:
-      - ROTA=api/creembolsos
+      - "1435:1433"
+  # ngnix-proxy:
+  #   build: ./ngnix-proxy
+  #   image: "ngnix-proxy"
+  #   networks:
+  #     - rede
+  #   ports:
+  #     - "80:80"
+  # api-clientes:
+  #   build: ./api-clientes
+  #   image: "api-clientes"
+  #   container_name: api-clientes
+  #   networks:
+  #     - rede
+  #   environment:
+  #     - ROTA=api/clientes
+  # api-creembolsos:
+  #   build: ./api-creembolsos
+  #   image: "api-creembolsos"
+  #   container_name: api-creembolsos
+  #   networks:
+  #     - rede
+  #   environment:
+  #     - ROTA=api/creembolsos
