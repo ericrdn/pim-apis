@@ -11,9 +11,18 @@ using System.Data.SqlClient;
 namespace api_multas.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class MultasController : ControllerBase
     {
+        [HttpPatch]
+        public string Conexao()
+        {
+            string Servidor = Environment.GetEnvironmentVariable("SERVER_BD");
+            string Usuario = Environment.GetEnvironmentVariable("USER_BD");
+            string Senha = Environment.GetEnvironmentVariable("PASSWORD_BD");
+
+            return $"Servidor: {Servidor} - Usuario: {Usuario} - Senha: {Senha}";
+        }
 
         [HttpGet]
         public async Task<Multas> Get(int IdMulta)

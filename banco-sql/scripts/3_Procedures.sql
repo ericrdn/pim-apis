@@ -1,6 +1,6 @@
 USE [FrotaVeiculos]
 GO
-/****** Object:  StoredProcedure [dbo].[AAA]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[AAA]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -9,7 +9,7 @@ CREATE PROC [dbo].[AAA]
 AS
 SELECT 1
 GO
-/****** Object:  StoredProcedure [dbo].[ATUALIZAR_USUARIO]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[ATUALIZAR_USUARIO]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -26,7 +26,7 @@ BEGIN
     UPDATE USUARIOS SET NOME = @NOME WHERE EMAIL = @EMAIL
 END
 GO
-/****** Object:  StoredProcedure [dbo].[CONSULTAR_USUARIO]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[CONSULTAR_USUARIO]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -45,7 +45,7 @@ BEGIN
     WHERE EMAIL = @EMAIL
 END
 GO
-/****** Object:  StoredProcedure [dbo].[INCLUIR_USUARIO]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[INCLUIR_USUARIO]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -66,7 +66,7 @@ BEGIN
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[MUDA_STATUS_CHAVE_ESTRANGEIRA]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[MUDA_STATUS_CHAVE_ESTRANGEIRA]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -110,7 +110,7 @@ BEGIN
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_ALTERA_CEMAILS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_ALTERA_CEMAILS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -142,7 +142,7 @@ CEID = @CEID
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_ALTERA_CENDERECO]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_ALTERA_CENDERECO]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -184,7 +184,7 @@ CEID = @CEID
 
 END 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_ALTERA_CESTOQUEPECAS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_ALTERA_CESTOQUEPECAS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -215,7 +215,7 @@ CMID = @CMID
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_ALTERA_CUSUARIOS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_ALTERA_CUSUARIOS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -248,7 +248,7 @@ BEGIN
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_ALTERA_CVEICULOS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_ALTERA_CVEICULOS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -282,7 +282,7 @@ BEGIN
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_ALTERA_LLOCACAO]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_ALTERA_LLOCACAO]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -317,7 +317,7 @@ BEGIN
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_ALTERA_LVIAGENS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_ALTERA_LVIAGENS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -350,7 +350,7 @@ BEGIN
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_ALTERA_TPECAS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_ALTERA_TPECAS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -363,7 +363,7 @@ create procedure [dbo].[SP_ALTERA_TPECAS]
 AS
 UPDATE tpecas SET TPDESCRICAO = @TPDESCRICAO WHERE TPID = @TPID
 GO
-/****** Object:  StoredProcedure [dbo].[SP_ALTERAR_CCLIENTES]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_ALTERAR_CCLIENTES]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -377,7 +377,7 @@ AS
 UPDATE CCLIENTES SET COCPF = @COCPF, CONOMECLI = @CONOMECLI WHERE COID = @COID
 	 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_ALTERAR_CMANUTENCAO]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_ALTERAR_CMANUTENCAO]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -391,7 +391,7 @@ create procedure [dbo].[SP_ALTERAR_CMANUTENCAO]
 AS
 UPDATE cmanutencao SET CMPLACAVEICULO = @CMPLACAVEICULO, CMDESCRICAO = @CMDESCRICAO WHERE CMID = @CMID
 GO
-/****** Object:  StoredProcedure [dbo].[SP_ALTERAR_CMULTAS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_ALTERAR_CMULTAS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -414,7 +414,7 @@ UPDATE
 		CMCODIGOMULTA = @CMCODIGOMULTA,  CMDTHRINFRACAO = @CMDTHRINFRACAO, CMDTHRRECEBIMENTO = @CMDTHRRECEBIMENTO, 
 		CMLOCAL = @CMLOCAL, CMPONTOS = @CMPONTOS, CMVALOR = @CMVALOR, CMPLACA = @CMPLACA WHERE CMID = @CMID
 GO
-/****** Object:  StoredProcedure [dbo].[SP_ALTERAR_COCUPANTES]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_ALTERAR_COCUPANTES]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -427,7 +427,7 @@ CREATE PROCEDURE [dbo].[SP_ALTERAR_COCUPANTES](
 AS
 UPDATE COCUPANTES SET COIDVIAGEM = @COIDVIAGEM WHERE COID = @COID
 GO
-/****** Object:  StoredProcedure [dbo].[SP_ALTERAR_CPROPIETARIOS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_ALTERAR_CPROPIETARIOS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -440,7 +440,7 @@ CREATE PROCEDURE [dbo].[SP_ALTERAR_CPROPIETARIOS](
 AS
 UPDATE CPROPIETARIOS SET CPCGC = @CPCGC, CPNOME = @CPNOME  WHERE CPID = @CPID
 GO
-/****** Object:  StoredProcedure [dbo].[SP_ALTERAR_CREEMBOLSOS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_ALTERAR_CREEMBOLSOS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -475,7 +475,7 @@ WHERE
    CRID = @CRID
 	 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_ALTERAR_CSEGURO]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_ALTERAR_CSEGURO]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -510,7 +510,7 @@ WHERE
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_ALTERAR_CSINISTRO]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_ALTERAR_CSINISTRO]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -537,7 +537,7 @@ WHERE
    CSID = @CSID
 	 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_ALTERAR_CTELEFONES]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_ALTERAR_CTELEFONES]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -568,7 +568,7 @@ WHERE
    CTID = @CTID
 	 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_ALTERAR_TREEMBOLSOS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_ALTERAR_TREEMBOLSOS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -580,7 +580,7 @@ CREATE PROCEDURE [dbo].[SP_ALTERAR_TREEMBOLSOS](
 AS
 UPDATE TREEMBOLSOS SET TRDESCRICAO = @TRDESCRICAO WHERE TRID = @TRID
 GO
-/****** Object:  StoredProcedure [dbo].[SP_ALTERAR_TUSUARIO]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_ALTERAR_TUSUARIO]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -593,7 +593,7 @@ CREATE PROCEDURE [dbo].[SP_ALTERAR_TUSUARIO](
 AS
 UPDATE TUSUARIO SET TUDESCRICAO = @TUDESCRICAO, TUCAMPOSOBRIGATORIOS = @TUCAMPOSOBRIGATORIOS  WHERE TUID = @TUID
 GO
-/****** Object:  StoredProcedure [dbo].[SP_ALTERAR_TVEICULOS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_ALTERAR_TVEICULOS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -605,7 +605,7 @@ CREATE PROCEDURE [dbo].[SP_ALTERAR_TVEICULOS](
 AS
 UPDATE TVEICULOS SET TVDESCRICAOTIPO =@TVDESCRICAOTIPO WHERE TVID = @TVID
 GO
-/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_CCEMAILS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_CCEMAILS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -616,7 +616,7 @@ CREATE PROCEDURE [dbo].[SP_EXCLUIR_CCEMAILS](
 AS
 DELETE CEMAILS WHERE CEID = @CEID
 GO
-/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_CCLIENTES]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_CCLIENTES]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -627,7 +627,7 @@ CREATE PROCEDURE [dbo].[SP_EXCLUIR_CCLIENTES](
 AS
 DELETE CCLIENTES WHERE COID = @COID
 GO
-/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_CENDERECO]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_CENDERECO]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -646,7 +646,7 @@ BEGIN
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_CESTOQUEPECAS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_CESTOQUEPECAS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -665,7 +665,7 @@ BEGIN
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_CMANUTENCAO]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_CMANUTENCAO]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -677,7 +677,7 @@ create procedure [dbo].[SP_EXCLUIR_CMANUTENCAO]
 AS
 DELETE CMANUTENCAO WHERE CMID = @CMID
 GO
-/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_CMULTAS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_CMULTAS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -688,7 +688,7 @@ CREATE PROCEDURE [dbo].[SP_EXCLUIR_CMULTAS](
 AS
 DELETE FROM CMULTAS WHERE CMID = @CMID
 GO
-/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_COCUPANTES]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_COCUPANTES]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -699,7 +699,7 @@ CREATE PROCEDURE [dbo].[SP_EXCLUIR_COCUPANTES](
 AS
 DELETE COCUPANTES WHERE COID = @COID
 GO
-/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_CPROPIETARIOS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_CPROPIETARIOS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -710,7 +710,7 @@ CREATE PROCEDURE [dbo].[SP_EXCLUIR_CPROPIETARIOS](
 AS
 DELETE CPROPIETARIOS WHERE CPID = @CPID
 GO
-/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_CREEMBOLSOS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_CREEMBOLSOS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -722,7 +722,7 @@ CREATE PROCEDURE [dbo].[SP_EXCLUIR_CREEMBOLSOS]
 AS
 DELETE FROM CREEMBOLSOS WHERE CRID = @CRID
 GO
-/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_CSEGURO]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_CSEGURO]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -734,7 +734,7 @@ CREATE PROCEDURE [dbo].[SP_EXCLUIR_CSEGURO]
 AS
 DELETE FROM CSEGURO WHERE CCID = @CCID
 GO
-/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_CSINISTRO]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_CSINISTRO]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -746,7 +746,7 @@ CREATE PROCEDURE [dbo].[SP_EXCLUIR_CSINISTRO]
 AS
 DELETE FROM CSINISTRO WHERE CSID = @CSID
 GO
-/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_CTELEFONES]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_CTELEFONES]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -758,7 +758,7 @@ CREATE PROCEDURE [dbo].[SP_EXCLUIR_CTELEFONES]
 AS
 DELETE FROM CTELEFONES WHERE CTID = @CTID
 GO
-/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_CUSUARIOS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_CUSUARIOS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -777,7 +777,7 @@ BEGIN
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_CVEICULOS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_CVEICULOS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -796,7 +796,7 @@ BEGIN
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_LLOCACAO]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_LLOCACAO]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -815,7 +815,7 @@ BEGIN
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_LVIAGENS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_LVIAGENS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -834,7 +834,7 @@ BEGIN
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_TPECAS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_TPECAS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -847,7 +847,7 @@ CREATE PROCEDURE [dbo].[SP_EXCLUIR_TPECAS]
 AS
 DELETE tpecas where TPID = @TPID
 GO
-/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_TREEMBOLSOS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_TREEMBOLSOS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -858,7 +858,7 @@ CREATE PROCEDURE [dbo].[SP_EXCLUIR_TREEMBOLSOS](
 AS
 DELETE FROM TREEMBOLSOS WHERE TRID = @TRID
 GO
-/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_TUSUARIO]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_TUSUARIO]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -869,7 +869,7 @@ CREATE PROCEDURE [dbo].[SP_EXCLUIR_TUSUARIO](
 AS
 DELETE FROM TUSUARIO WHERE TUID = @TUID
 GO
-/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_TVEICULOS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_EXCLUIR_TVEICULOS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -880,7 +880,7 @@ CREATE PROCEDURE [dbo].[SP_EXCLUIR_TVEICULOS](
 AS
 DELETE TVEICULOS WHERE TVID = @TVID
 GO
-/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_CCLIENTES]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_CCLIENTES]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -898,7 +898,7 @@ BEGIN
         (@COCPF, @CONOMECLI)
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_CEMAILS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_CEMAILS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -921,7 +921,7 @@ BEGIN
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_CENDERECO]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_CENDERECO]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -950,7 +950,7 @@ BEGIN
 
 END  
 GO
-/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_CESTOQUEPECAS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_CESTOQUEPECAS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -971,7 +971,7 @@ BEGIN
         (@CMIDPECA, @CMPLACAVEICULO, @CMDESCRICAO, @CMIDMANUTENCAO)
 END 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_CMANUTENCAO]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_CMANUTENCAO]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -987,7 +987,7 @@ INSERT INTO CMANUTENCAO
 VALUES
     (@CMPLACAVEICULO, @CMDESCRICAO)
 GO
-/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_CMULTAS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_CMULTAS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1009,7 +1009,7 @@ INSERT INTO
 VALUES
     (@CMCODIGOMULTA, @CMDTHRINFRACAO, @CMDTHRRECEBIMENTO, @CMLOCAL, @CMPONTOS, @CMVALOR, @CMPLACA)
 GO
-/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_COCUPANTES]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_COCUPANTES]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1023,7 +1023,7 @@ INSERT INTO COCUPANTES
 VALUES
     (@COIDVIAGEM)
 GO
-/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_CPROPIETARIOS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_CPROPIETARIOS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1039,7 +1039,7 @@ INSERT INTO CPROPIETARIOS
 VALUES
     (@CPCGC, @CPNOME)
 GO
-/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_CREEMBOLSOS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_CREEMBOLSOS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1068,7 +1068,7 @@ VALUES
     ( @CRTIPO, @CRPLACAVEICULO, @CRIDENDERECO, @CRVALOR, @CRDTHRCAD, @CRDTHRINI, @CRDTHRFIM)
 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_CSEGURO]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_CSEGURO]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1098,7 +1098,7 @@ BEGIN
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_CSINISTRO]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_CSINISTRO]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1122,7 +1122,7 @@ VALUES
 
     (@CSPLACAVEICULO, @CSIDSEGURO, @CSDESCRICAO)  
 GO
-/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_CTELEFONES]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_CTELEFONES]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1149,7 +1149,7 @@ VALUES
     (@CTCNPJCPF, @CTDD, @CTNUMERO, @CTTIPO, @CTOPERADORA)
 	   
 GO
-/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_CUSUARIOS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_CUSUARIOS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1172,7 +1172,7 @@ BEGIN
         (@CUNOME, @CUCNPJCPF, @CUCNH, @CURG, @CUTPUSUARIO, @CUIDENDERECO, @CUCARTEIRATRABALHO)
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_CVEICULOS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_CVEICULOS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1196,7 +1196,7 @@ BEGIN
         (@CVCGC_PROPIETARIO, @CVPLACA, @CVCHASSI, @CVMODELO, @CVMARCAR, @CVCOR, @CVANO, @CVTIPOVEICULO)
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_LLOCACAO]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_LLOCACAO]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1220,7 +1220,7 @@ BEGIN
         (@LLUSUARIOCAD, @LLIDCLIENTE, @LLPLACAVEICULO, @LLDTHRCAD, @LLDTHRINICIO, @LLDTHRFINAL, @LLIDSEGUROCONTRATADO, @LLVALORDIALOCACAO)
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_LVIAGENS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_LVIAGENS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1243,7 +1243,7 @@ BEGIN
         (@LVDTHRCAD, @LVDTHRINICIO, @LVDTHRFINAL, @LVPLACAVEICULO, @LVIDENDERECOORIGEM, @LVIDENDERECODESTINO, @LVPREVISAOKM)
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_TPECAS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_TPECAS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1258,7 +1258,7 @@ INSERT INTO tpecas
 VALUES
     (@TPDESCRICAO)
 GO
-/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_TREEMBOLSOS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_TREEMBOLSOS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1272,7 +1272,7 @@ INSERT INTO TREEMBOLSOS
 VALUES
     (@TRDESCRICAO)
 GO
-/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_TUSUARIO]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_TUSUARIO]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1287,7 +1287,7 @@ INSERT INTO Tusuario
 VALUES
     (@TUDESCRICAO, @TUCAMPOSOBRIGATORIOS)
 GO
-/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_TVEICULOS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_INCLUIR_TVEICULOS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1302,7 +1302,7 @@ INSERT INTO TVEICULOS
 VALUES
     (@TVDESCRICAOTIPO)
 GO
-/****** Object:  StoredProcedure [dbo].[SP_RETORNAUSUARIOS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_RETORNAUSUARIOS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1316,7 +1316,7 @@ BEGIN
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_SELECIONA_CEMAILS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_SELECIONA_CEMAILS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1326,15 +1326,25 @@ CREATE PROCEDURE [dbo].[SP_SELECIONA_CEMAILS]
     @CEID INT
 )
 AS
-BEGIN
-    DELETE
-FROM 
-CEMAILS
-WHERE
-CEID = @CEID
+
+IF @CEID = 0 OR @CEID IS NULL
+	BEGIN
+
+    SELECT *
+    FROM CEMAILS
+
+END
+
+ELSE
+	BEGIN
+
+    SELECT *
+    FROM CEMAILS
+    WHERE CEID = @CEID
+
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_SELECIONA_CENDERECO]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_SELECIONA_CENDERECO]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1344,16 +1354,25 @@ CREATE PROCEDURE [dbo].[SP_SELECIONA_CENDERECO]
     @CEID INT
 )
 AS
-BEGIN
-    SELECT
-        *
-    FROM
-        CENDERECO
-    WHERE    
-CEID = @CEID
+
+IF @CEID = 0 OR @CEID IS NULL
+	BEGIN
+
+    SELECT *
+    FROM CENDERECO
+
+END
+
+ELSE
+	BEGIN
+
+    SELECT *
+    FROM CENDERECO
+    WHERE CEID = @CEID
+
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_SELECIONA_CESTOQUEPECAS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_SELECIONA_CESTOQUEPECAS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1363,16 +1382,25 @@ CREATE PROCEDURE [dbo].[SP_SELECIONA_CESTOQUEPECAS]
     @CMID INT
 )
 AS
-BEGIN
-    SELECT
-        *
-    FROM
-        CESTOQUEPECAS
-    WHERE    
-CMID = @CMID
+
+IF @CMID = 0 OR @CMID IS NULL
+	BEGIN
+
+    SELECT *
+    FROM CESTOQUEPECAS
+
+END  
+
+ELSE
+	BEGIN
+
+    SELECT *
+    FROM CESTOQUEPECAS
+    WHERE CMID = @CMID
+
 END  
 GO
-/****** Object:  StoredProcedure [dbo].[SP_SELECIONA_CMANUTENCAO]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_SELECIONA_CMANUTENCAO]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1382,11 +1410,25 @@ CREATE PROCEDURE [dbo].[SP_SELECIONA_CMANUTENCAO]
     @CMID INT
 )
 AS
-SELECT *
-FROM CMANUTENCAO
-WHERE CMID = @CMID 
+
+IF @CMID = 0 OR @CMID IS NULL
+	BEGIN
+
+    SELECT *
+    FROM CMANUTENCAO
+
+END
+
+ELSE
+	BEGIN
+
+    SELECT *
+    FROM CMANUTENCAO
+    WHERE CMID = @CMID
+
+END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_SELECIONA_CUSUARIOS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_SELECIONA_CUSUARIOS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1396,17 +1438,25 @@ CREATE PROCEDURE [dbo].[SP_SELECIONA_CUSUARIOS]
     @CUID INT
 )
 AS
-BEGIN
-    SELECT
-        *
-    FROM
-        CUSUARIOS
-    WHERE 
-		CUID			   = @CUID
+
+IF @CUID = 0 OR @CUID IS NULL
+	BEGIN
+
+    SELECT *
+    FROM CUSUARIOS
+
+END
+
+ELSE
+	BEGIN
+
+    SELECT *
+    FROM CUSUARIOS
+    WHERE CUID = @CUID
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_SELECIONA_CVEICULOS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_SELECIONA_CVEICULOS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1416,17 +1466,25 @@ CREATE PROCEDURE [dbo].[SP_SELECIONA_CVEICULOS]
     @CVPLACA VARCHAR(7)
 )
 AS
-BEGIN
-    SELECT
-        *
-    FROM
-        CVEICULOS
-    WHERE 
-		CVPLACA			   = @CVPLACA
+
+IF @CVPLACA = 0 OR @CVPLACA IS NULL
+	BEGIN
+
+    SELECT *
+    FROM CVEICULOS
+
+END
+
+ELSE
+	BEGIN
+
+    SELECT *
+    FROM CVEICULOS
+    WHERE CVPLACA = @CVPLACA
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_SELECIONA_LLOCACAO]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_SELECIONA_LLOCACAO]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1436,17 +1494,25 @@ CREATE PROCEDURE [dbo].[SP_SELECIONA_LLOCACAO]
     @LLID INT
 )
 AS
-BEGIN
-    SELECT
-        *
-    FROM
-        LLOCACAO
-    WHERE 
-		LLID			   = @LLID
+
+IF @LLID = 0 OR @LLID IS NULL
+	BEGIN
+
+    SELECT *
+    FROM LLOCACAO
+
+END
+
+ELSE
+	BEGIN
+
+    SELECT *
+    FROM LLOCACAO
+    WHERE LLID = @LLID
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_SELECIONA_LVIAGENS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_SELECIONA_LVIAGENS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1456,31 +1522,53 @@ CREATE PROCEDURE [dbo].[SP_SELECIONA_LVIAGENS]
     @LVID INT
 )
 AS
-BEGIN
-    SELECT
-        *
-    FROM
-        LVIAGENS
-    WHERE 
-		LVID			   = @LVID
+
+IF @LVID = 0 OR @LVID IS NULL
+	BEGIN
+
+    SELECT *
+    FROM LVIAGENS
+
+END
+
+ELSE
+	BEGIN
+
+    SELECT *
+    FROM LVIAGENS
+    WHERE LVID = @LVID
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_SELECIONA_TPECAS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_SELECIONA_TPECAS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-create PROCEDURE [dbo].[SP_SELECIONA_TPECAS]
+CREATE PROCEDURE [dbo].[SP_SELECIONA_TPECAS]
     (
     @TPID INT
 )
 AS
-select *
-from TPECAS
-WHERE TPID = @TPID
+
+IF @TPID = 0 OR @TPID IS NULL
+	BEGIN
+
+    select *
+    from TPECAS
+
+END
+
+ELSE
+	BEGIN
+
+    select *
+    from TPECAS
+    WHERE TPID = @TPID
+
+END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_SELECIONA_VEICULOS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_SELECIONA_VEICULOS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1502,7 +1590,7 @@ END
 
 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_SELECIONAR_CCLIENTES]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_SELECIONAR_CCLIENTES]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1511,12 +1599,26 @@ CREATE PROCEDURE [dbo].[SP_SELECIONAR_CCLIENTES](
     @COID INT
 )
 AS
-SELECT *
-FROM CCLIENTES
-WHERE COID = @COID
+
+IF @COID = 0 OR @COID IS NULL
+		BEGIN
+
+    SELECT *
+    FROM CCLIENTES
+
+END
+
+	 ELSE
+		BEGIN
+
+    SELECT *
+    FROM CCLIENTES
+    WHERE COID = @COID
+
+END
 		 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_SELECIONAR_CMULTAS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_SELECIONAR_CMULTAS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1525,11 +1627,25 @@ CREATE PROCEDURE [dbo].[SP_SELECIONAR_CMULTAS](
     @CMID INT
 )
 AS
-SELECT *
-FROM CMULTAS
-WHERE CMID = @CMID
+
+IF @CMID = 0 OR @CMID IS NULL
+	BEGIN
+
+    SELECT *
+    FROM CMULTAS
+
+END
+
+ELSE
+	BEGIN
+
+    SELECT *
+    FROM CMULTAS
+    WHERE CMID = @CMID
+
+END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_SELECIONAR_COCUPANTES]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_SELECIONAR_COCUPANTES]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1538,11 +1654,25 @@ CREATE PROCEDURE [dbo].[SP_SELECIONAR_COCUPANTES](
     @COID INT
 )
 AS
-SELECT *
-FROM COCUPANTES
-WHERE COID = @COID
+
+IF @COID = 0 OR @COID IS NULL
+	BEGIN
+
+    SELECT *
+    FROM COCUPANTES
+
+END
+
+ELSE
+	BEGIN
+
+    SELECT *
+    FROM COCUPANTES
+    WHERE COID = @COID
+
+END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_SELECIONAR_CPROPIETARIOS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_SELECIONAR_CPROPIETARIOS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1551,11 +1681,25 @@ CREATE PROCEDURE [dbo].[SP_SELECIONAR_CPROPIETARIOS](
     @CPID INT
 )
 AS
-SELECT *
-FROM CPROPIETARIOS
-WHERE CPID = @CPID
+
+IF @CPID = 0 OR @CPID IS NULL
+	BEGIN
+
+    SELECT *
+    FROM CPROPIETARIOS
+
+END
+
+ELSE
+	BEGIN
+
+    SELECT *
+    FROM CPROPIETARIOS
+    WHERE CPID = @CPID
+
+END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_SELECIONAR_CREEMBOLSOS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_SELECIONAR_CREEMBOLSOS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1564,11 +1708,25 @@ CREATE PROCEDURE [dbo].[SP_SELECIONAR_CREEMBOLSOS](
     @CRID INT
 )
 AS
-SELECT *
-FROM CREEMBOLSOS
-WHERE CRID = @CRID
+
+IF @CRID = 0 OR @CRID IS NULL
+	BEGIN
+
+    SELECT *
+    FROM CREEMBOLSOS
+
+END
+
+ELSE
+	BEGIN
+
+    SELECT *
+    FROM CREEMBOLSOS
+    WHERE CRID = @CRID
+
+END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_SELECIONAR_CSEGURO]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_SELECIONAR_CSEGURO]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1577,11 +1735,25 @@ CREATE PROCEDURE [dbo].[SP_SELECIONAR_CSEGURO](
     @CCID INT
 )
 AS
-SELECT *
-FROM CSEGURO
-WHERE CCID = @CCID
+
+IF @CCID = 0 OR @CCID IS NULL
+	BEGIN
+
+    SELECT *
+    FROM CSEGURO
+
+END
+
+ELSE
+	BEGIN
+
+    SELECT *
+    FROM CSEGURO
+    WHERE CCID = @CCID
+
+END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_SELECIONAR_CSINISTRO]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_SELECIONAR_CSINISTRO]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1590,11 +1762,25 @@ CREATE PROCEDURE [dbo].[SP_SELECIONAR_CSINISTRO](
     @CSID INT
 )
 AS
-SELECT *
-FROM CSINISTRO
-WHERE CSID = @CSID
+
+IF @CSID = 0 OR @CSID IS NULL
+	BEGIN
+
+    SELECT *
+    FROM CSINISTRO
+
+END
+
+ELSE
+	BEGIN
+
+    SELECT *
+    FROM CSINISTRO
+    WHERE CSID = @CSID
+
+END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_SELECIONAR_CTELEFONES]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_SELECIONAR_CTELEFONES]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1604,11 +1790,25 @@ CREATE PROCEDURE [dbo].[SP_SELECIONAR_CTELEFONES]
     @CTID INT
 )
 AS
-SELECT *
-FROM CTELEFONES
-WHERE CTID = @CTID
+
+IF @CTID = 0 OR @CTID IS NULL
+	BEGIN
+
+    SELECT *
+    FROM CTELEFONES
+
+END
+
+ELSE
+	BEGIN
+
+    SELECT *
+    FROM CTELEFONES
+    WHERE CTID = @CTID
+
+END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_SELECIONAR_TREEMBOLSOS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_SELECIONAR_TREEMBOLSOS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1617,11 +1817,25 @@ CREATE PROCEDURE [dbo].[SP_SELECIONAR_TREEMBOLSOS](
     @TRID INT
 )
 AS
-SELECT *
-FROM TREEMBOLSOS
-WHERE TRID = @TRID
+
+IF @TRID = 0 OR @TRID IS NULL
+	BEGIN
+
+    SELECT *
+    FROM TREEMBOLSOS
+
+END
+
+ELSE
+	BEGIN
+
+    SELECT *
+    FROM TREEMBOLSOS
+    WHERE TRID = @TRID
+
+END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_SELECIONAR_TUSUARIO]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_SELECIONAR_TUSUARIO]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1630,11 +1844,25 @@ CREATE PROCEDURE [dbo].[SP_SELECIONAR_TUSUARIO](
     @TUID INT
 )
 AS
-SELECT *
-FROM TUSUARIO
-WHERE TUID = @TUID
+
+IF @TUID = 0 OR @TUID IS NULL
+	BEGIN
+
+    SELECT *
+    FROM TUSUARIO
+
+END
+
+ELSE
+	BEGIN
+
+    SELECT *
+    FROM TUSUARIO
+    WHERE TUID = @TUID
+
+END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_SELECIONAR_TVEICULOS]    Script Date: 30/11/2019 16:12:28 ******/
+/****** Object:  StoredProcedure [dbo].[SP_SELECIONAR_TVEICULOS]    Script Date: 01/12/2019 19:29:06 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1643,7 +1871,21 @@ CREATE PROCEDURE [dbo].[SP_SELECIONAR_TVEICULOS](
     @TVID INT
 )
 AS
-SELECT *
-FROM TVEICULOS
-WHERE TVID = @TVID
+
+IF @TVID = 0 OR @TVID IS NULL
+	BEGIN
+
+    SELECT *
+    FROM TVEICULOS
+
+END
+
+ELSE
+	BEGIN
+
+    SELECT *
+    FROM TVEICULOS
+    WHERE TVID = @TVID
+
+END
 GO

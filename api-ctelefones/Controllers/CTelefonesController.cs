@@ -12,7 +12,7 @@ using api_ctelefones;
 namespace api_ctelefones.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class CTelefonesController : ControllerBase
     {
 

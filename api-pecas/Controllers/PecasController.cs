@@ -12,7 +12,7 @@ using api_Peca;
 namespace api_pecas.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class PecaController : ControllerBase
     {
 
@@ -45,7 +45,7 @@ namespace api_pecas.Controllers
             {
                 List<SqlParameter> ParametrosEntrada = new List<SqlParameter>();
                 ParametrosEntrada.Add(new SqlParameter("@TPDESCRICAO", modelo.DescricaoPeca));
-                
+
                 await new BancodeDados().ExecutarProcedure<Peca>(
                     "SP_INCLUIR_TPECAS", ParametrosEntrada.ToArray());
             }
@@ -90,7 +90,7 @@ namespace api_pecas.Controllers
 
                 ParametrosEntrada.Add(new SqlParameter("@TPID", modelo.IdPeca));
                 ParametrosEntrada.Add(new SqlParameter("@TPDESCRICAO", modelo.DescricaoPeca));
-                
+
                 await new BancodeDados().ExecutarProcedure<Peca>(
                     "SP_ALTERA_TPECAS", ParametrosEntrada.ToArray());
             }

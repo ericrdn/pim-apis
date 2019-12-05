@@ -11,7 +11,7 @@ using System.Data.SqlClient;
 namespace api_emails.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class EmailsController : ControllerBase
     {
 

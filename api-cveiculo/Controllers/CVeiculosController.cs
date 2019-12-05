@@ -12,7 +12,7 @@ using api_cveiculos;
 namespace api_cveiculos.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class CVeiculosController : ControllerBase
     {
 
@@ -44,7 +44,7 @@ namespace api_cveiculos.Controllers
             try
             {
                 List<SqlParameter> ParametrosEntrada = new List<SqlParameter>();
-                
+
                 ParametrosEntrada.Add(new SqlParameter("@CVCGC_PROPIETARIO", modelo.CGCProp));
                 ParametrosEntrada.Add(new SqlParameter("@CVPLACA", modelo.Placa));
                 ParametrosEntrada.Add(new SqlParameter("@CVCHASSI", modelo.Chassi));

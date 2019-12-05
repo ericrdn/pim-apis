@@ -29,8 +29,16 @@ namespace api_multas
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "API Cliente", Version = "v1" });
             });
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+    {
+        builder.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+    }));
+
+
 
         }
 
@@ -42,12 +50,14 @@ namespace api_multas
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
+
+
 
             string RotaConfigurada = Environment.GetEnvironmentVariable("ROTA");
 
             if (string.IsNullOrEmpty(RotaConfigurada))
-                RotaConfigurada = "api/clientes";
+                RotaConfigurada = "api/multas/documentacao";
 
 
             app.UseSwagger(c =>
@@ -65,6 +75,8 @@ namespace api_multas
             });
 
             app.UseAuthorization();
+
+            app.UseCors("MyPolicy");
 
 
             app.UseEndpoints(endpoints =>

@@ -12,7 +12,7 @@ using api_lviagens;
 namespace api_lviagens.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class LViagensController : ControllerBase
     {
 

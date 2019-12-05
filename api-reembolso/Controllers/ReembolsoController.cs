@@ -12,7 +12,7 @@ using api_reembolsos;
 namespace api_multas.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class ReembolsosController : ControllerBase
     {
 
@@ -45,7 +45,7 @@ namespace api_multas.Controllers
             {
                 List<SqlParameter> ParametrosEntrada = new List<SqlParameter>();
                 ParametrosEntrada.Add(new SqlParameter("@TRDESCRICAO", modelo.DesReembolso));
-                
+
                 await new BancodeDados().ExecutarProcedure<Reembolso>(
                     "SP_INCLUIR_TREEMBOLSOS", ParametrosEntrada.ToArray());
             }
@@ -90,7 +90,7 @@ namespace api_multas.Controllers
 
                 ParametrosEntrada.Add(new SqlParameter("@TRID", modelo.IdReembolso));
                 ParametrosEntrada.Add(new SqlParameter("@TRDESCRICAO", modelo.DesReembolso));
-                
+
                 await new BancodeDados().ExecutarProcedure<Reembolso>(
                     "SP_ALTERAR_TREEMBOLSOS", ParametrosEntrada.ToArray());
             }

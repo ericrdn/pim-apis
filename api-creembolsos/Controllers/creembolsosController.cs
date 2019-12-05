@@ -12,7 +12,7 @@ using api_creembolsos;
 namespace api_CReembolsos.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class CReembolsosController : ControllerBase
     {
 

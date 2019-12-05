@@ -11,7 +11,7 @@ using System.Data.SqlClient;
 namespace api_ocupantes.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class OcupantesController : ControllerBase
     {
 

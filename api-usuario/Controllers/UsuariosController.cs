@@ -11,7 +11,7 @@ using System.Data.SqlClient;
 namespace api_usuarios.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class UsuariosController : ControllerBase
     {
 

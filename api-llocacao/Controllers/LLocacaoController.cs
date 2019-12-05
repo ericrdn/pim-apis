@@ -12,7 +12,7 @@ using api_llocacao;
 namespace api_llocacaos.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class LLocacaosController : ControllerBase
     {
 
