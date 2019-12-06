@@ -110,12 +110,12 @@ export function FormularioPadrao(props) {
       if (item.TipoCampo === 'float' && Dados[item.Nome]) {
         Dados[item.Nome] = String(Dados[item.Nome]).replace('.', ',');
       }
-      // if (item.TipoCampo === "DataHora" && Dados[item.Nome]) {
-      //   // Dados[item.Nome] = new Date(Dados[item.Nome]);
-      //   Dados[item.Nome] = moment(new Date(Dados[item.Nome])).format(
-      //     "dd/MM/YYYY HH:mm:ss"
-      //   );
-      // }
+      if (item.TipoCampo === 'DataHora' && Dados[item.Nome]) {
+        // Dados[item.Nome] = new Date(Dados[item.Nome]);
+        Dados[item.Nome] = moment(new Date(Dados[item.Nome])).format(
+          'DD/MM/YYYY HH:mm:ss',
+        );
+      }
     });
 
     CarregarTelaInicial(Dados);
@@ -175,6 +175,15 @@ export function FormularioPadrao(props) {
       }
     }
 
+    if (DadosdoCampo.TipoCampo === 'DataHora') {
+      if (
+        ConteudoCampo.Valor.length < 16
+        || !moment(ConteudoCampo.Valor, 'DD/MM/YYYY HH:mm:ss').isValid()
+      ) {
+        return { Erro: true, MensagemdoCampo: 'Data/Hora Inválida' };
+      }
+    }
+
     let FuncaoValidacaoCampo;
 
     if (DadosdoCampo.CampoCNPJ) FuncaoValidacaoCampo = Validacoes.ValidacaoCNPJ;
@@ -210,6 +219,11 @@ export function FormularioPadrao(props) {
     if (DadosdoCampo.TipoCampo === 'float') {
       InfoCampoNovo.Valor = InfoCampoNovo.Valor.replace(/[^0-9,]+/g, '');
       DadosdoCampo.QuantidadeCaracteres = 8;
+    }
+
+    if (DadosdoCampo.TipoCampo === 'DataHora') {
+      InfoCampoNovo.Valor = InfoCampoNovo.Valor.replace(/[^0-9,/: ]+/g, '');
+      DadosdoCampo.QuantidadeCaracteres = 19;
     }
 
     if (DadosdoCampo.QuantidadeCaracteres) {
@@ -318,13 +332,18 @@ export function FormularioPadrao(props) {
                   let ConteudoCampoTela = Conteudo[item.Nome].Valor;
                   if (
                     item.AutoIncremento
-                    || item.TipoCampo === 'int' || item.TipoCampo === 'float'
+                    || item.TipoCampo === 'int'
+                    || item.TipoCampo === 'float'
                   ) {
                     ConteudoCampoTela = Number(
                       String(ConteudoCampoTela).replace(',', '.'),
                     );
+                  } else if (item.TipoCampo === 'DataHora') {
+                    ConteudoCampoTela = moment(
+                      ConteudoCampoTela,
+                      'DD/MM/YYYY HH:mm:ss',
+                    ).format();
                   }
-
                   return [item.Nome, ConteudoCampoTela];
                 }),
               );

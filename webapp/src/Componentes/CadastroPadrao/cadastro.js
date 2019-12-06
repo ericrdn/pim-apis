@@ -33,7 +33,7 @@ export default function Dados(props) {
       })
       .catch((err) => AbrirAlerta(
           'Erro ao gravar',
-          `Houve um erro ao gravar o registro:\n${err}`,
+          `Houve um erro ao gravar o registro:\n${JSON.stringify(Dados)}`,
         ),);
   }
 
