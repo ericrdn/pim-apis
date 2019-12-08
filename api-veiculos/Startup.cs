@@ -32,6 +32,14 @@ namespace api_usuarios
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
             });
 
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+{
+    builder.AllowAnyOrigin()
+          .AllowAnyMethod()
+          .AllowAnyHeader();
+}));
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,7 +50,7 @@ namespace api_usuarios
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             string RotaConfigurada = Environment.GetEnvironmentVariable("ROTA");
 
@@ -65,6 +73,8 @@ namespace api_usuarios
             });
 
             app.UseAuthorization();
+
+            app.UseCors("MyPolicy");
 
 
             app.UseEndpoints(endpoints =>

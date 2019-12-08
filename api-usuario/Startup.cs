@@ -29,8 +29,16 @@ namespace api_multas
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Tipos de Usuário", Version = "v1" });
             });
+
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+{
+    builder.AllowAnyOrigin()
+       .AllowAnyMethod()
+       .AllowAnyHeader();
+}));
+
 
         }
 
@@ -42,7 +50,7 @@ namespace api_multas
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             string RotaConfigurada = Environment.GetEnvironmentVariable("ROTA");
 
@@ -63,6 +71,8 @@ namespace api_multas
                 c.SwaggerEndpoint($"/{RotaConfigurada}/api-docs/v1/swagger.json", "My API V1");
                 c.RoutePrefix = RotaConfigurada;
             });
+
+            app.UseCors("MyPolicy");
 
             app.UseAuthorization();
 

@@ -13,7 +13,7 @@ namespace api_pecas.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class PecaController : ControllerBase
+    public class PecasController : ControllerBase
     {
 
         [HttpGet]

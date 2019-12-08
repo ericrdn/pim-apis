@@ -116,6 +116,12 @@ export function FormularioPadrao(props) {
           'DD/MM/YYYY HH:mm:ss',
         );
       }
+      if (item.CampoData && Dados[item.Nome]) {
+        // Dados[item.Nome] = new Date(Dados[item.Nome]);
+        Dados[item.Nome] = moment(new Date(Dados[item.Nome])).format(
+          'DD/MM/YYYY',
+        );
+      }
     });
 
     CarregarTelaInicial(Dados);
@@ -343,11 +349,17 @@ export function FormularioPadrao(props) {
                       ConteudoCampoTela,
                       'DD/MM/YYYY HH:mm:ss',
                     ).format();
+                  } else if (item.CampoData) {
+                    ConteudoCampoTela = moment(
+                      ConteudoCampoTela,
+                      'DD/MM/YYYY',
+                    ).format();
                   }
+
                   return [item.Nome, ConteudoCampoTela];
                 }),
               );
-              // console.log(DadosGravacao);
+              console.log('Dados enviados: ', DadosGravacao);
               handleGravacao(DadosGravacao);
             } else {
               AbrirAlerta('Validação Campos', 'Erro na validação dos campos');

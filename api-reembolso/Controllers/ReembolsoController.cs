@@ -13,7 +13,7 @@ namespace api_multas.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ReembolsosController : ControllerBase
+    public class TipoReembolsoController : ControllerBase
     {
 
         [HttpGet]

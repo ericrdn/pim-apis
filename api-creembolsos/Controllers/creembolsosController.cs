@@ -13,7 +13,7 @@ namespace api_CReembolsos.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class CReembolsosController : ControllerBase
+    public class ReembolsosController : ControllerBase
     {
 
         [HttpGet]

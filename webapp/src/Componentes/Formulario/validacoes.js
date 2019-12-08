@@ -84,9 +84,9 @@ function validarCPF(cpf) {
 
 function validarData(data) {
   if (data.length !== 10) return false;
-  const dia = data.split('/')[0];
-  const mes = data.split('/')[1];
-  const ano = data.split('/')[2];
+  const dia = Number(data.split('/')[0]);
+  const mes = Number(data.split('/')[1]);
+  const ano = Number(data.split('/')[2]);
   const MyData = new Date(ano, mes - 1, dia);
   if (
     MyData.getMonth() + 1 !== mes

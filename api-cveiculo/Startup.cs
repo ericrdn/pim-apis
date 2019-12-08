@@ -33,6 +33,13 @@ namespace api_multas
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Veiculos", Version = "v1" });
             });
 
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+    {
+        builder.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+    }));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,7 +50,7 @@ namespace api_multas
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             string RotaConfigurada = Environment.GetEnvironmentVariable("ROTA");
 
@@ -56,6 +63,8 @@ namespace api_multas
 
                 c.RouteTemplate = RotaConfigurada + "/api-docs/{documentName}/swagger.json";
             });
+
+            app.UseCors("MyPolicy");
 
             app.UseRouting();
 

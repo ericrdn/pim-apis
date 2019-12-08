@@ -16,12 +16,13 @@ export function ListagemPadrao(props) {
 
   const [Alerta, setAlerta] = React.useState(DadosAlertaInicial);
 
-  function AbrirAlerta(Titulo, Mensagem, EventoOk) {
+  function AbrirAlerta(Titulo, Mensagem, EventoOk, Confirmacao) {
     setAlerta({
       Aberto: true,
       Mensagem,
       Titulo,
       EventoOk,
+      Confirmacao,
     });
   }
 
@@ -41,7 +42,13 @@ export function ListagemPadrao(props) {
   } = props;
 
   const CarregarDadosListagem = () => {
-    CarregaDados().then((response) => setDadosCadastro(response.data));
+    CarregaDados().then((response) => {
+      console.log(response);
+      if (response.data) setDadosCadastro(response.data);
+      else {
+        AbrirAlerta('Erro ao consultar lista', JSON.stringify(response.data));
+      }
+    });
   };
 
   React.useEffect(CarregarDadosListagem, []);
@@ -71,7 +78,11 @@ export function ListagemPadrao(props) {
         handleClose={fecharAlerta}
         Mensagem={Alerta.Mensagem}
         Titulo={Alerta.Titulo}
-        Botoes={[{ Texto: 'Sim', Evento: Alerta.EventoOk }, { Texto: 'Não' }]}
+        Botoes={
+          Alerta.Confirmacao
+            ? [{ Texto: 'Sim', Evento: Alerta.EventoOk }, { Texto: 'Não' }]
+            : undefined
+        }
       />
       {DadosCadastro.length > 0 ? (
         <Tabela
@@ -95,6 +106,7 @@ export function ListagemPadrao(props) {
                     await ExcluirRegistro(item);
                     CarregarDadosListagem();
                   },
+                  true,
                 ),
             },
           ]}
