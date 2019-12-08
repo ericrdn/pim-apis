@@ -6,16 +6,17 @@ import {
 } from '../../Componentes/CadastroPadrao/index';
 import CadastroPadrao from '../../Componentes/CadastroPadrao/cadastro';
 import ModelCliente from './model';
+import Services from '../../Services';
 
-const CarregaDados = () => axios.get('http://localhost:5000/clientes');
+const CarregaDados = () => axios.get(Services.urlAPIClientes);
 
-const CarregaRegistro = (Dados) => axios.get(`http://localhost:5000/clientes/${Dados}`);
+const CarregaRegistro = (Dados) => axios.get(Services.urlAPIClientes);
 
-const AlterarRegistro = (Dados) => axios.put('http://localhost:5000/clientes', Dados);
+const AlterarRegistro = (Dados) => axios.put(Services.urlAPIClientes, Dados);
 
-const IncluirRegistro = (Dados) => axios.post('http://localhost:5000/clientes', Dados);
+const IncluirRegistro = (Dados) => axios.post(Services.urlAPIClientes, Dados);
 
-const ExcluirRegistro = (Dados) => axios.delete(`http://localhost:5000/clientes/${Dados.codigo}`);
+const ExcluirRegistro = (Dados) => axios.delete(`${Services.urlAPIClientes} ${Dados.codigo}`);
 
 const NomeCadastro = 'Cliente';
 const NomeCadastroPlural = 'Clientes';
