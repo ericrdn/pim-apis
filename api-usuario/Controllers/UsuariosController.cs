@@ -12,7 +12,7 @@ namespace api_usuarios.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class UsuariosController : ControllerBase
+    public class TipoUsuarioController : ControllerBase
     {
 
         [HttpGet]

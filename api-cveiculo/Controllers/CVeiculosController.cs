@@ -13,7 +13,7 @@ namespace api_cveiculos.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class CVeiculosController : ControllerBase
+    public class VeiculosController : ControllerBase
     {
 
         [HttpGet]

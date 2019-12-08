@@ -22,8 +22,105 @@ services:
       - SERVER_BD=banco-dados
       - USER_BD=sa
       - PASSWORD_BD=Password@123
-    ports:
-      - "81:80"
+  api-reembolso:
+    build: ./api-creembolsos
+    image: "api-creembolsos"
+    container_name: api-creembolsos
+    networks:
+      - rede
+    environment:
+      - ROTA=api/reembolsos/documentacao
+      - SERVER_BD=banco-dados
+      - USER_BD=sa
+      - PASSWORD_BD=Password@123
+  api-cveiculo:
+    build: ./api-cveiculo
+    image: "api-cveiculo"
+    container_name: api-cveiculo
+    networks:
+      - rede
+    environment:
+      - ROTA=api/veiculos/documentacao
+      - SERVER_BD=banco-dados
+      - USER_BD=sa
+      - PASSWORD_BD=Password@123
+  api-manutencao:
+    build: ./api-manutencao
+    image: "api-manutencao"
+    container_name: api-manutencao
+    networks:
+      - rede
+    environment:
+      - ROTA=api/manutencoes/documentacao
+      - SERVER_BD=banco-dados
+      - USER_BD=sa
+      - PASSWORD_BD=Password@123
+  api-veiculos:
+    build: ./api-veiculos
+    image: "api-veiculos"
+    container_name: api-veiculos
+    networks:
+      - rede
+    environment:
+      - ROTA=api/tipoveiculos/documentacao
+      - SERVER_BD=banco-dados
+      - USER_BD=sa
+      - PASSWORD_BD=Password@123
+  api-estoquepecas:
+    build: ./api-estoquepecas
+    image: "api-estoquepecas"
+    container_name: api-estoquepecas
+    networks:
+      - rede
+    environment:
+      - ROTA=api/estoquepecas/documentacao
+      - SERVER_BD=banco-dados
+      - USER_BD=sa
+      - PASSWORD_BD=Password@123
+  api-reembolso:
+    build: ./api-reembolso
+    image: "api-reembolso"
+    container_name: api-reembolso
+    networks:
+      - rede
+    environment:
+      - ROTA=api/tiporeembolso/documentacao
+      - SERVER_BD=banco-dados
+      - USER_BD=sa
+      - PASSWORD_BD=Password@123
+  api-usuario:
+    build: ./api-usuario
+    image: "api-usuario"
+    container_name: api-usuario
+    networks:
+      - rede
+    environment:
+      - ROTA=api/tipousuario/documentacao
+      - SERVER_BD=banco-dados
+      - USER_BD=sa
+      - PASSWORD_BD=Password@123
+  api-pecas:
+    build: ./api-pecas
+    image: "api-pecas"
+    container_name: api-pecas
+    networks:
+      - rede
+    environment:
+      - ROTA=api/pecas/documentacao
+      - SERVER_BD=banco-dados
+      - USER_BD=sa
+      - PASSWORD_BD=Password@123
+  api-usuarios:
+    build: ./api-usuarios
+    image: "api-usuarios"
+    container_name: api-usuarios
+    networks:
+      - rede
+    environment:
+      - ROTA=api/usuarios/documentacao
+      - SERVER_BD=banco-dados
+      - USER_BD=sa
+      - PASSWORD_BD=Password@123
   banco-dados:
     build: ./banco-sql
     image: "banco-sql"
