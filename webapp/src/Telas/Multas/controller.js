@@ -1,41 +1,36 @@
-import React from "react";
-import axios from "axios";
+import React from 'react';
+import axios from 'axios';
 import {
   ListagemPadrao,
-  RetornaCamposVisiveis
-} from "../../Componentes/CadastroPadrao/index";
-import CadastroPadrao from "../../Componentes/CadastroPadrao/cadastro";
-import MultaModel from "./model";
+  RetornaCamposVisiveis,
+} from '../../Componentes/CadastroPadrao/index';
+import CadastroPadrao from '../../Componentes/CadastroPadrao/cadastro';
+import MultaModel from './model';
+import Services from '../../Services';
 
-const CarregaDados = () =>
-  axios
-    .get("http://localhost:5000/api/multas/")
-    .then(response => ({ data: response.data.listaMultas }));
+const CarregaDados = () => axios
+    .get(Services.urlAPIMultas)
+    .then((response) => ({ data: response.data.listaMultas }));
 
-const CarregaRegistro = Dados =>
-  axios
-    .get(`http://localhost:5000/api/multas/?IdMulta=${Dados.codigo}`)
-    .then(resp => ({ data: resp.data.listaMultas[0] }));
+const CarregaRegistro = (Dados) => axios
+    .get(`${Services.urlAPIMultas}?IdMulta=${Dados.codigo}`)
+    .then((resp) => ({ data: resp.data.listaMultas[0] }));
 
-const AlterarRegistro = Dados =>
-  axios.put("http://localhost:5000/api/multas/", Dados);
+const AlterarRegistro = (Dados) => axios.put(Services.urlAPIMultas, Dados);
 
-const IncluirRegistro = Dados =>
-  axios.post("http://localhost:5000/api/multas/", Dados);
+const IncluirRegistro = (Dados) => axios.post(Services.urlAPIMultas, Dados);
 
-const ExcluirRegistro = Dados => {
+const ExcluirRegistro = (Dados) => {
   console.log(Dados);
-  return axios.delete(
-    `http://localhost:5000/api/multas/?IdMulta=${Dados.idMulta}`
-  );
+  return axios.delete(`${Services.urlAPIMultas}?IdMulta=${Dados.idMulta}`);
 };
 
-const NomeCadastro = "Multa";
-const NomeCadastroPlural = "Multas";
+const NomeCadastro = 'Multa';
+const NomeCadastroPlural = 'Multas';
 
-const RotaCadastro = "/multas";
-const RotaInclusao = "/multas/incluir";
-const RotaAlteracao = "/multas/alterar/";
+const RotaCadastro = '/multas';
+const RotaInclusao = '/multas/incluir';
+const RotaAlteracao = '/multas/alterar/';
 
 const MultaController = {
   Listagem(props) {
@@ -65,7 +60,7 @@ const MultaController = {
         Modelo={MultaModel}
       />
     );
-  }
+  },
 };
 
 export default MultaController;

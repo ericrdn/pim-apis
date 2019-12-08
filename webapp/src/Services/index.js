@@ -1,9 +1,15 @@
+const UrlBase = 'http://localhost:5000/';
+
 export default {
-  urlAPIUsuarios: "http://localhost:5000/api/Usuarios/",
-  urlAPIManutencoes: "http://localhost:5000/api/Manutencoes/",
-  urlAPITipoVeiculo: "http://localhost:5000/api/TipoVeiculos/",
-  urlPecas: "http://localhost:5000/api/Pecas/",
-  urlAPITipoReembolso: "http://localhost:5000/api/TipoReembolso/",
-  urlAPIReembolso: "http://localhost:5000/api/Reembolsos/",
-  urlAPIEstoquePecas: "http://localhost:5000/api/EstoquePecas/"
+  urlAPIClientes: `${UrlBase}api/Clientes/`,
+  urlAPIMultas: `${UrlBase}api/Multas/`,
+  urlAPICadastroVeiculos: `${UrlBase}api/Veiculos/`,
+  urlAPITipoUsuarios: `${UrlBase}api/Usuarios/`,
+  urlAPIUsuarios: `${UrlBase}api/Usuarios/`,
+  urlAPIManutencoes: `${UrlBase}api/Manutencoes/`,
+  urlAPITipoVeiculo: `${UrlBase}api/TipoVeiculos/`,
+  urlPecas: `${UrlBase}api/Pecas/`,
+  urlAPITipoReembolso: `${UrlBase}api/TipoReembolso/`,
+  urlAPIReembolso: `${UrlBase}api/Reembolsos/`,
+  urlAPIEstoquePecas: `${UrlBase}api/EstoquePecas/`,
 };

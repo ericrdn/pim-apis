@@ -6,20 +6,21 @@ import {
 } from '../../Componentes/CadastroPadrao/index';
 import CadastroPadrao from '../../Componentes/CadastroPadrao/cadastro';
 import VeiculoModel from './model';
+import Services from '../../Services';
 
 const CarregaDados = () => axios
-    .get('http://localhost:5000/api/cveiculos/')
+    .get(Services.urlAPICadastroVeiculos)
     .then((response) => ({ data: response.data.listaCVeiculos }));
 
 const CarregaRegistro = (Dados) => axios
-    .get(`http://localhost:5000/api/cveiculos/?Placa=${Dados.codigo}`)
+    .get(`${Services.urlAPICadastroVeiculos}?Placa=${Dados.codigo}`)
     .then((resp) => ({ data: resp.data.listaCVeiculos[0] }));
 
-const AlterarRegistro = (Dados) => axios.put('http://localhost:5000/api/cveiculos/', Dados);
+const AlterarRegistro = (Dados) => axios.put(Services.urlAPICadastroVeiculos, Dados);
 
-const IncluirRegistro = (Dados) => axios.post('http://localhost:5000/api/cveiculos/', Dados);
+const IncluirRegistro = (Dados) => axios.post(Services.urlAPICadastroVeiculos, Dados);
 
-const ExcluirRegistro = (Dados) => axios.delete(`http://localhost:5000/api/cveiculos/?Placa=${Dados.placa}`);
+const ExcluirRegistro = (Dados) => axios.delete(`${Services.urlAPICadastroVeiculos}?Placa=${Dados.placa}`);
 
 const NomeCadastro = 'Veiculo';
 const NomeCadastroPlural = 'Veiculos';
