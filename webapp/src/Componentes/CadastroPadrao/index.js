@@ -1,6 +1,7 @@
 import React from 'react';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
+import { CircularProgress } from '@material-ui/core';
 import SnackBar from '../SnackBar';
 import AlertDialog from '../Dialog';
 
@@ -8,6 +9,8 @@ import Tabela from '../Tabela';
 import Botao from '../Botao';
 
 export function ListagemPadrao(props) {
+  const [Carregando, setCarregando] = React.useState(false);
+
   const DadosAlertaInicial = {
     Aberto: false,
     Mensagem: '',
@@ -42,13 +45,19 @@ export function ListagemPadrao(props) {
   } = props;
 
   const CarregarDadosListagem = () => {
-    CarregaDados().then((response) => {
-      console.log(response);
-      if (response.data) setDadosCadastro(response.data);
-      else {
-        AbrirAlerta('Erro ao consultar lista', JSON.stringify(response.data));
-      }
-    });
+    setCarregando(true);
+    CarregaDados()
+      .then((response) => {
+        setCarregando(false);
+        if (response.data) setDadosCadastro(response.data);
+        else {
+          AbrirAlerta('Erro ao consultar lista', JSON.stringify(response.data));
+        }
+      })
+      .catch((err) => {
+        setCarregando(false);
+        AbrirAlerta('Erro ao consultar lista', JSON.stringify(err));
+      });
   };
 
   React.useEffect(CarregarDadosListagem, []);
@@ -84,7 +93,17 @@ export function ListagemPadrao(props) {
             : undefined
         }
       />
-      {DadosCadastro.length > 0 ? (
+      {Carregando ? (
+        <>
+          <br />
+          <br />
+          <br />
+          <CircularProgress
+            size={24}
+            style={{ width: 50, height: 50, marginTop: 30 }}
+          />
+        </>
+      ) : DadosCadastro.length > 0 ? (
         <Tabela
           Titulo={`${NomeCadastroPlural} Cadastrados`}
           Dados={DadosCadastro.map(ConverteItemTabela)}
@@ -111,7 +130,14 @@ export function ListagemPadrao(props) {
             },
           ]}
         />
-      ) : null}
+      ) : (
+        <>
+          <br />
+          <br />
+          <br />
+          <i>Não existem registros</i>
+        </>
+      )}
     </>
   );
 }

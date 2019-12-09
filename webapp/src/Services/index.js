@@ -1,15 +1,25 @@
-const UrlBase = 'http://localhost:5000/';
+import axios from "axios";
+
+const UrlBase = "http://192.168.0.9/";
+
+const ParametrizacaoURL = {
+  urlAPIClientes: `${UrlBase}api/clientes/`,
+  urlAPIMultas: `${UrlBase}api/multas/`,
+  urlAPICadastroVeiculos: `${UrlBase}api/veiculos/`,
+  urlAPITipoUsuarios: `${UrlBase}api/tipousuario/`,
+  urlAPIUsuarios: `${UrlBase}api/usuarios/`,
+  urlAPIManutencoes: `${UrlBase}api/manutencoes/`,
+  urlAPITipoVeiculo: `${UrlBase}api/tipoveiculos/`,
+  urlPecas: `${UrlBase}api/pecas/`,
+  urlAPITipoReembolso: `${UrlBase}api/tiporeembolso/`,
+  urlAPIReembolso: `${UrlBase}api/reembolsos/`,
+  urlAPIEstoquePecas: `${UrlBase}api/estoquepecas/`
+};
 
 export default {
-  urlAPIClientes: `${UrlBase}api/Clientes/`,
-  urlAPIMultas: `${UrlBase}api/Multas/`,
-  urlAPICadastroVeiculos: `${UrlBase}api/Veiculos/`,
-  urlAPITipoUsuarios: `${UrlBase}api/Usuarios/`,
-  urlAPIUsuarios: `${UrlBase}api/Usuarios/`,
-  urlAPIManutencoes: `${UrlBase}api/Manutencoes/`,
-  urlAPITipoVeiculo: `${UrlBase}api/TipoVeiculos/`,
-  urlPecas: `${UrlBase}api/Pecas/`,
-  urlAPITipoReembolso: `${UrlBase}api/TipoReembolso/`,
-  urlAPIReembolso: `${UrlBase}api/Reembolsos/`,
-  urlAPIEstoquePecas: `${UrlBase}api/EstoquePecas/`,
+  ...ParametrizacaoURL,
+
+  TipoVeiculos: {
+    ConsultarTodos: axios.get(ParametrizacaoURL.urlAPICadastroVeiculos)
+  }
 };

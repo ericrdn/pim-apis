@@ -12,9 +12,8 @@ const CarregaDados = () => axios
     .get(Services.urlAPICadastroVeiculos)
     .then((response) => ({ data: response.data.listaCVeiculos }));
 
-const CarregaRegistro = (Dados) => axios
-    .get(`${Services.urlAPICadastroVeiculos}?Placa=${Dados.codigo}`)
-    .then((resp) => ({ data: resp.data.listaCVeiculos[0] }));
+const CarregaRegistro = (Dados) => axios.get(`${Services.urlAPICadastroVeiculos}?Placa=${Dados.codigo}`);
+// .then((resp) => ({ data: resp.data.listaCVeiculos[0] }));
 
 const AlterarRegistro = (Dados) => axios.put(Services.urlAPICadastroVeiculos, Dados);
 
