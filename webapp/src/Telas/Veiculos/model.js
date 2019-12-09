@@ -1,5 +1,6 @@
-import React from 'react';
-import { CampoCadastro, FormularioPadrao } from '../../Componentes/Formulario';
+import React from "react";
+import { CampoCadastro, FormularioPadrao } from "../../Componentes/Formulario";
+import Services from "../../Services";
 
 // import { Container } from './styles';
 
@@ -52,10 +53,13 @@ export default function ModeloCliente(props) {
       />
       <CampoCadastro
         Nome="tipoVeic"
-        Descricao="TipoVeic"
+        Descricao="Tipo Veículo"
         Tamanho={300}
         Obrigatorio
         TipoCampo="int"
+        Select={[{ Valor: "10", Descricao: "Carro" }]}
+        //Select={Services.TipoVeiculos.ConsultarTodos}
+        ExibeListagem
       />
     </FormularioPadrao>
   );

@@ -1,6 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TextField, Button } from '@material-ui/core';
+import {
+  TextField,
+  Button,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useHistory } from 'react-router-dom';
 import Validacoes from './validacoes';
@@ -278,28 +285,48 @@ export function FormularioPadrao(props) {
           {CamposCadastro.filter((item) => !item.AutoIncremento).map((item) => (
             <ErrorBoundary key={JSON.stringify(item)}>
               <div className={classes.containerField}>
-                <TextField
-                  className={classes.textField}
-                  key={item.Nome}
-                  id={item.Nome}
-                  label={item.Descricao}
-                  margin="normal"
-                  variant="filled"
-                  value={Conteudo[item.Nome] ? Conteudo[item.Nome].Valor : ''}
-                  onChange={handleAlteraCampo(
-                    item.Nome,
-                    item,
-                    Conteudo[item.Nome],
-                  )}
-                  onBlur={handleAlteraCampo(
-                    item.Nome,
-                    item,
-                    Conteudo[item.Nome],
-                  )}
-                  style={{ width: item.Tamanho, maxWidth: '100%' }}
-                  error={Conteudo[item.Nome].Erro}
-                  helperText={Conteudo[item.Nome].Aviso}
-                />
+                {!item.Select ? (
+                  <TextField
+                    className={classes.textField}
+                    key={item.Nome}
+                    id={item.Nome}
+                    label={item.Descricao}
+                    margin="normal"
+                    variant="filled"
+                    value={Conteudo[item.Nome] ? Conteudo[item.Nome].Valor : ''}
+                    onChange={handleAlteraCampo(
+                      item.Nome,
+                      item,
+                      Conteudo[item.Nome],
+                    )}
+                    onBlur={handleAlteraCampo(
+                      item.Nome,
+                      item,
+                      Conteudo[item.Nome],
+                    )}
+                    style={{ width: item.Tamanho, maxWidth: '100%' }}
+                    error={Conteudo[item.Nome].Erro}
+                    helperText={Conteudo[item.Nome].Aviso}
+                  />
+                ) : (
+                  <FormControl className={classes.textField} variant="filled">
+                    <InputLabel>{item.Descricao}</InputLabel>
+                    <Select
+                      value={
+                        Conteudo[item.Nome] ? Conteudo[item.Nome].Valor : ''
+                      }
+                      onChange={handleAlteraCampo(
+                        item.Nome,
+                        item,
+                        Conteudo[item.Nome],
+                      )}
+                    >
+                      {item.Select.map((item) => (
+                        <MenuItem value={item.Valor}>{item.Descricao}</MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                )}
               </div>
             </ErrorBoundary>
           ))}
