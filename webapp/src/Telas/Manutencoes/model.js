@@ -23,7 +23,7 @@ export default function ModeloCliente(props) {
       <CampoCadastro
         Nome="descricao"
         Descricao="Descrição"
-        Tamanho={300}
+        Tamanho={800}
         ExibeListagem
       />
     </FormularioPadrao>
