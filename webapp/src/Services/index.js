@@ -1,6 +1,6 @@
-import axios from "axios";
+import axios from 'axios';
 
-const UrlBase = "http://192.168.0.9/";
+const UrlBase = 'http://192.168.0.9/';
 
 const ParametrizacaoURL = {
   urlAPIClientes: `${UrlBase}api/clientes/`,
@@ -13,13 +13,13 @@ const ParametrizacaoURL = {
   urlPecas: `${UrlBase}api/pecas/`,
   urlAPITipoReembolso: `${UrlBase}api/tiporeembolso/`,
   urlAPIReembolso: `${UrlBase}api/reembolsos/`,
-  urlAPIEstoquePecas: `${UrlBase}api/estoquepecas/`
+  urlAPIEstoquePecas: `${UrlBase}api/estoquepecas/`,
 };
 
 export default {
   ...ParametrizacaoURL,
 
   TipoVeiculos: {
-    ConsultarTodos: axios.get(ParametrizacaoURL.urlAPICadastroVeiculos)
-  }
+    ConsultarTodos: axios.get(ParametrizacaoURL.urlAPITipoVeiculo),
+  },
 };

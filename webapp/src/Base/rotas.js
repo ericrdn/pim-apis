@@ -61,21 +61,6 @@ function RotaCadastro({ rotaBase, Nome, Controller, Icone }) {
 export default function Rotas() {
   const Rotas = [
     Rota("/", "Home", Home, <HomeIcon />),
-    Rota("/clientes", "Clientes", ClientesController.Listagem, <PeopleIcon />),
-    Rota(
-      "/clientes/incluir",
-      "Incluir Cliente",
-      ClientesController.Cadastro,
-      <DirectionsCarIcon />,
-      false
-    ),
-    Rota(
-      "/clientes/alterar/:codigo",
-      "Alterar Cliente",
-      ClientesController.Cadastro,
-      <DirectionsCarIcon />,
-      false
-    ),
 
     Rota("/multas", "Multas", MultasController.Listagem, <ThumbDownAltIcon />),
     Rota(
@@ -168,6 +153,13 @@ export default function Rotas() {
     Nome: "Estoque Peças",
     Controller: EstoquePecasController,
     Icone: AssignmentIcon
+  }).forEach(item => Rotas.push(item));
+
+  RotaCadastro({
+    rotaBase: "/clientes",
+    Nome: "Clientes",
+    Controller: ClientesController,
+    Icone: PersonIcon
   }).forEach(item => Rotas.push(item));
 
   return Rotas;

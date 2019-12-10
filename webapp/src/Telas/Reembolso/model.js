@@ -1,5 +1,5 @@
-import React from 'react';
-import { CampoCadastro, FormularioPadrao } from '../../Componentes/Formulario';
+import React from "react";
+import { CampoCadastro, FormularioPadrao } from "../../Componentes/Formulario";
 
 // import { Container } from './styles';
 
@@ -38,6 +38,7 @@ export default function ModeloCliente(props) {
         Descricao="Valor"
         Tamanho={160}
         TipoCampo="float"
+        ExibeListagem
       />
       <CampoCadastro
         Nome="dataIniCad"

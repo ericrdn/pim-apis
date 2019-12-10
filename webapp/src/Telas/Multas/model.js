@@ -1,5 +1,5 @@
-import React from 'react';
-import { CampoCadastro, FormularioPadrao } from '../../Componentes/Formulario';
+import React from "react";
+import { CampoCadastro, FormularioPadrao } from "../../Componentes/Formulario";
 
 // import { Container } from './styles';
 
@@ -17,7 +17,7 @@ export default function ModeloCliente(props) {
       <CampoCadastro
         Nome="placa"
         Descricao="Placa"
-        Tamanho={500}
+        Tamanho={200}
         QuantidadeCaracteres={7}
       />
       <CampoCadastro
@@ -31,7 +31,6 @@ export default function ModeloCliente(props) {
         Descricao="Data Hora Infração"
         Tamanho={300}
         Obrigatorio
-        ExibeListagem
         TipoCampo="DataHora"
       />
       <CampoCadastro
@@ -46,6 +45,7 @@ export default function ModeloCliente(props) {
         Descricao="Local"
         Tamanho={700}
         Obrigatorio
+        ExibeListagem
         QuantidadeCaracteres={200}
       />
       <CampoCadastro
@@ -58,6 +58,7 @@ export default function ModeloCliente(props) {
         Nome="valor"
         Descricao="Valor"
         Tamanho={160}
+        ExibeListagem
         TipoCampo="float"
       />
     </FormularioPadrao>
