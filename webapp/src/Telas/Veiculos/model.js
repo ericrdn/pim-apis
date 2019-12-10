@@ -57,9 +57,16 @@ export default function ModeloCliente(props) {
         Tamanho={300}
         Obrigatorio
         TipoCampo="int"
-        Select={[{ Valor: "10", Descricao: "Carro" }]}
-        //Select={Services.TipoVeiculos.ConsultarTodos}
-        ExibeListagem
+        Select={[
+          { Valor: "1", Descricao: "Carro" },
+          { Valor: "2", Descricao: "Minivan" },
+          { Valor: "3", Descricao: "Van" },
+          { Valor: "4", Descricao: "Carro Eletrico" }
+        ]}
+        // Select={Services.TipoVeiculos.ConsultarTodos.then((i) => i.data.listaVeiculos.map((item) => ({
+        //     Valor: item.idVeiculo,
+        //     Descricao: item.descricaoTipo,
+        //   })),)}
       />
     </FormularioPadrao>
   );

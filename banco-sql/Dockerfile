@@ -10,6 +10,7 @@ WORKDIR /usr/src/app
 COPY . /usr/src/app
 
 RUN chmod +x /usr/src/app/scripts.sh
+RUN chmod +x /usr/src/app/inicializar.sh
 
 EXPOSE 1433
 

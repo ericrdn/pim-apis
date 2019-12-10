@@ -59,67 +59,7 @@ function RotaCadastro({ rotaBase, Nome, Controller, Icone }) {
 }
 
 export default function Rotas() {
-  const Rotas = [
-    Rota("/", "Home", Home, <HomeIcon />),
-    Rota("/clientes", "Clientes", ClientesController.Listagem, <PeopleIcon />),
-    Rota(
-      "/clientes/incluir",
-      "Incluir Cliente",
-      ClientesController.Cadastro,
-      <DirectionsCarIcon />,
-      false
-    ),
-    Rota(
-      "/clientes/alterar/:codigo",
-      "Alterar Cliente",
-      ClientesController.Cadastro,
-      <DirectionsCarIcon />,
-      false
-    ),
-
-    Rota("/multas", "Multas", MultasController.Listagem, <ThumbDownAltIcon />),
-    Rota(
-      "/multas/incluir",
-      "Incluir Cliente",
-      MultasController.Cadastro,
-      <DirectionsCarIcon />,
-      false
-    ),
-    Rota(
-      "/multas/alterar/:codigo",
-      "Alterar Cliente",
-      MultasController.Cadastro,
-      <DirectionsCarIcon />,
-      false
-    ),
-    Rota(
-      "/veiculos",
-      "Veiculos",
-      VeiculosController.Listagem,
-      <DriveEtaIcon />
-    ),
-    Rota(
-      "/veiculos/incluir",
-      "Incluir Cliente",
-      VeiculosController.Cadastro,
-      <DirectionsCarIcon />,
-      false
-    ),
-    Rota(
-      "/veiculos/alterar/:codigo",
-      "Alterar Cliente",
-      VeiculosController.Cadastro,
-      <DirectionsCarIcon />,
-      false
-    )
-  ];
-
-  RotaCadastro({
-    rotaBase: "/tipousuario",
-    Nome: "Tipo Usuário",
-    Controller: TipoUsuarioController,
-    Icone: GroupIcon
-  }).forEach(item => Rotas.push(item));
+  const Rotas = [Rota("/", "Home", Home, <HomeIcon />)];
 
   RotaCadastro({
     rotaBase: "/usuarios",
@@ -128,32 +68,34 @@ export default function Rotas() {
     Icone: PersonIcon
   }).forEach(item => Rotas.push(item));
 
+  Rotas.push({ menu: true, divisor: 1 });
+
+  RotaCadastro({
+    rotaBase: "/clientes",
+    Nome: "Clientes",
+    Controller: ClientesController,
+    Icone: PersonIcon
+  }).forEach(item => Rotas.push(item));
+
+  RotaCadastro({
+    rotaBase: "/veiculos",
+    Nome: "Veiculos",
+    Controller: VeiculosController,
+    Icone: DirectionsCarIcon
+  }).forEach(item => Rotas.push(item));
+
+  RotaCadastro({
+    rotaBase: "/multas",
+    Nome: "Multas",
+    Controller: MultasController,
+    Icone: ThumbDownAltIcon
+  }).forEach(item => Rotas.push(item));
+
   RotaCadastro({
     rotaBase: "/manutencoes",
     Nome: "Manutenções",
     Controller: ManutencoesController,
     Icone: SettingsIcon
-  }).forEach(item => Rotas.push(item));
-
-  RotaCadastro({
-    rotaBase: "/tipoveiculos",
-    Nome: "Tipo de Veículos",
-    Controller: TipoVeiculosController,
-    Icone: CommuteIcon
-  }).forEach(item => Rotas.push(item));
-
-  RotaCadastro({
-    rotaBase: "/pecas",
-    Nome: "Peças",
-    Controller: PecasController,
-    Icone: ShoppingCartIcon
-  }).forEach(item => Rotas.push(item));
-
-  RotaCadastro({
-    rotaBase: "/tiporeembolso",
-    Nome: "Tipo de Reembolso",
-    Controller: TipoReembolsoController,
-    Icone: LocalAtmIcon
   }).forEach(item => Rotas.push(item));
 
   RotaCadastro({
@@ -168,6 +110,36 @@ export default function Rotas() {
     Nome: "Estoque Peças",
     Controller: EstoquePecasController,
     Icone: AssignmentIcon
+  }).forEach(item => Rotas.push(item));
+
+  Rotas.push({ menu: true, divisor: 1 });
+
+  RotaCadastro({
+    rotaBase: "/tipoveiculos",
+    Nome: "Tipo de Veículos",
+    Controller: TipoVeiculosController,
+    Icone: CommuteIcon
+  }).forEach(item => Rotas.push(item));
+
+  RotaCadastro({
+    rotaBase: "/tipousuario",
+    Nome: "Tipo Usuário",
+    Controller: TipoUsuarioController,
+    Icone: GroupIcon
+  }).forEach(item => Rotas.push(item));
+
+  RotaCadastro({
+    rotaBase: "/tiporeembolso",
+    Nome: "Tipo de Reembolso",
+    Controller: TipoReembolsoController,
+    Icone: LocalAtmIcon
+  }).forEach(item => Rotas.push(item));
+
+  RotaCadastro({
+    rotaBase: "/pecas",
+    Nome: "Tipo de Peças",
+    Controller: PecasController,
+    Icone: ShoppingCartIcon
   }).forEach(item => Rotas.push(item));
 
   return Rotas;

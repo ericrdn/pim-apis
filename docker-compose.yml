@@ -7,6 +7,17 @@ services:
   ngnix-proxy:
     build: ./ngnix-proxy
     image: "ngnix-proxy"
+    depends_on: 
+      - api-tiporeembolso
+      - api-reembolsos
+      - api-usuarios
+      - api-tipousuario
+      - api-pecas
+      - api-cveiculo
+      - api-veiculos
+      - api-estoquepecas
+      - api-multas
+      - api-manutencao
     networks:
       - rede
     ports:
@@ -22,10 +33,10 @@ services:
       - SERVER_BD=banco-dados
       - USER_BD=sa
       - PASSWORD_BD=Password@123
-  api-reembolso:
-    build: ./api-creembolsos
-    image: "api-creembolsos"
-    container_name: api-creembolsos
+  api-reembolsos:
+    build: ./api-reembolsos
+    image: "api-reembolsos"
+    container_name: api-reembolsos
     networks:
       - rede
     environment:
@@ -77,10 +88,10 @@ services:
       - SERVER_BD=banco-dados
       - USER_BD=sa
       - PASSWORD_BD=Password@123
-  api-reembolso:
-    build: ./api-reembolso
-    image: "api-reembolso"
-    container_name: api-reembolso
+  api-tiporeembolso:
+    build: ./api-tiporeembolso
+    image: "api-tiporeembolso"
+    container_name: api-tiporeembolso
     networks:
       - rede
     environment:
@@ -88,10 +99,10 @@ services:
       - SERVER_BD=banco-dados
       - USER_BD=sa
       - PASSWORD_BD=Password@123
-  api-usuario:
-    build: ./api-usuario
-    image: "api-usuario"
-    container_name: api-usuario
+  api-tipousuario:
+    build: ./api-tipousuario
+    image: "api-tipousuario"
+    container_name: api-tipousuario
     networks:
       - rede
     environment:

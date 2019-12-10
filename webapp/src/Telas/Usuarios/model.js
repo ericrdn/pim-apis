@@ -1,5 +1,5 @@
-import React from 'react';
-import { CampoCadastro, FormularioPadrao } from '../../Componentes/Formulario';
+import React from "react";
+import { CampoCadastro, FormularioPadrao } from "../../Componentes/Formulario";
 
 // import { Container } from './styles';
 
@@ -19,7 +19,7 @@ export default function ModeloCliente(props) {
         Descricao="Nome"
         Tamanho={700}
         ExibeListagem
-        QuantidadeCaracteres={20}
+        QuantidadeCaracteres={50}
       />
       <CampoCadastro
         Nome="cnpjCpf"
@@ -43,7 +43,6 @@ export default function ModeloCliente(props) {
         Nome="tpUsuario"
         Descricao="Tipo Usuário"
         Tamanho={160}
-        ExibeListagem
         TipoCampo="int"
       />
       <CampoCadastro

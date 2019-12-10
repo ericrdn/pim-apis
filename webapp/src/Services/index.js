@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const UrlBase = "http://192.168.0.9/";
+// const UrlBase = 'http://192.168.0.9/';
+
+const UrlBase = "http://localhost:5000/";
 
 const ParametrizacaoURL = {
   urlAPIClientes: `${UrlBase}api/clientes/`,
@@ -20,6 +22,11 @@ export default {
   ...ParametrizacaoURL,
 
   TipoVeiculos: {
-    ConsultarTodos: axios.get(ParametrizacaoURL.urlAPICadastroVeiculos)
+    ConsultarTodos: axios.get(ParametrizacaoURL.urlAPITipoVeiculo)
+  },
+  DadosGerais: {
+    ConsultarDadosHome: axios.get(
+      `${ParametrizacaoURL.urlAPIClientes}DadosHome`
+    )
   }
 };

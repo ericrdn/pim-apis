@@ -24,12 +24,32 @@ namespace Funcoes.BancodeDados
 
     public class BancodeDados
     {
-        private static string ConnStr = @"Server=tcp:pim2019.ddns.net,1433;Initial Catalog=FrotaVeiculos;Persist Security Info=False;User ID=ususistema;Password=PIM@2019;MultipleActiveResultSets=False;TrustServerCertificate=False;Connection Timeout=30;";
-
         private SqlConnection _conn;
 
         private async Task Conectar()
         {
+
+            string ConnStr = @"Server=tcp:pim2019.ddns.net,1433;Initial Catalog=FrotaVeiculos;Persist Security Info=False;User ID=ususistema;Password=PIM@2019;MultipleActiveResultSets=False;TrustServerCertificate=False;Connection Timeout=30;";
+
+
+            string Servidor = Environment.GetEnvironmentVariable("SERVER_BD");
+            string Usuario = Environment.GetEnvironmentVariable("USER_BD");
+            string Senha = Environment.GetEnvironmentVariable("PASSWORD_BD");
+
+            if (!string.IsNullOrWhiteSpace(Servidor) &&
+                !string.IsNullOrWhiteSpace(Usuario) &&
+                !string.IsNullOrWhiteSpace(Senha))
+            {
+                ConnStr = $@"Server=tcp:{Servidor};" +
+                          $@"Initial Catalog=FrotaVeiculos;" +
+                          $@"Persist Security Info=False;" +
+                          $@"User ID={Usuario};" +
+                          $@"Password={Senha};" +
+                          $@"MultipleActiveResultSets=False;" +
+                          $@"TrustServerCertificate=False;" +
+                          $@"Connection Timeout=30;";
+            }
+
             _conn = new SqlConnection(ConnStr);
             await _conn.OpenAsync();
         }
@@ -86,6 +106,8 @@ namespace Funcoes.BancodeDados
 
             }
 
+            await _conn.CloseAsync();
+
             return retorno;
 
         }
@@ -93,7 +115,7 @@ namespace Funcoes.BancodeDados
         public async Task<int> ExecutarProcedure(string NomeProcedure, params SqlParameter[] paramProcedure)
         {
             await Conectar();
-
+            int Contador = -1;
             using (SqlCommand cmd = new SqlCommand(NomeProcedure, _conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -101,8 +123,13 @@ namespace Funcoes.BancodeDados
                 {
                     cmd.Parameters.AddRange(paramProcedure);
                 }
-                return await cmd.ExecuteNonQueryAsync();
+                Contador = await cmd.ExecuteNonQueryAsync();
             }
+
+
+            await _conn.CloseAsync();
+
+            return Contador;
         }
 
     }
