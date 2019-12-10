@@ -53,6 +53,10 @@ namespace api_cveiculos.Controllers
                 ParametrosEntrada.Add(new SqlParameter("@CVCOR", modelo.Cor));
                 ParametrosEntrada.Add(new SqlParameter("@CVANO", modelo.Ano));
                 ParametrosEntrada.Add(new SqlParameter("@CVTIPOVEICULO", modelo.TipoVeic));
+                ParametrosEntrada.Add(new SqlParameter("@CVQUILOMETRAGEM", modelo.Quilometragem));
+                ParametrosEntrada.Add(new SqlParameter("@CVVALIDADESEGURO", modelo.ValidadeSeguro));
+                ParametrosEntrada.Add(new SqlParameter("@CVNOMESEGURADORA", modelo.NomeSeguradora));
+                ParametrosEntrada.Add(new SqlParameter("@CVNUMEROAPOLICE", modelo.NumeroApolice));
 
                 await new BancodeDados().ExecutarProcedure<CVeiculo>(
                     "SP_INCLUIR_CVEICULOS", ParametrosEntrada.ToArray());
@@ -104,6 +108,10 @@ namespace api_cveiculos.Controllers
                 ParametrosEntrada.Add(new SqlParameter("@CVCOR", modelo.Cor));
                 ParametrosEntrada.Add(new SqlParameter("@CVANO", modelo.Ano));
                 ParametrosEntrada.Add(new SqlParameter("@CVTIPOVEICULO", modelo.TipoVeic));
+                ParametrosEntrada.Add(new SqlParameter("@CVQUILOMETRAGEM", modelo.Quilometragem));
+                ParametrosEntrada.Add(new SqlParameter("@CVVALIDADESEGURO", modelo.ValidadeSeguro));
+                ParametrosEntrada.Add(new SqlParameter("@CVNOMESEGURADORA", modelo.NomeSeguradora));
+                ParametrosEntrada.Add(new SqlParameter("@CVNUMEROAPOLICE", modelo.NumeroApolice));
 
                 await new BancodeDados().ExecutarProcedure<CVeiculo>(
                     "SP_ALTERA_CVEICULOS", ParametrosEntrada.ToArray());

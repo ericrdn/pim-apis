@@ -45,6 +45,9 @@ namespace api_manutencoes.Controllers
                 List<SqlParameter> ParametrosEntrada = new List<SqlParameter>();
                 ParametrosEntrada.Add(new SqlParameter("@CMPLACAVEICULO", modelo.PlacaVeiculo));
                 ParametrosEntrada.Add(new SqlParameter("@CMDESCRICAO", modelo.Descricao));
+                ParametrosEntrada.Add(new SqlParameter("@CMTIPOMANUTENCAO", modelo.TipoManutencao));
+                ParametrosEntrada.Add(new SqlParameter("@CMPECAUSADA", modelo.PecaUsada));
+                ParametrosEntrada.Add(new SqlParameter("@CMVALOR", modelo.Valor));
 
                 await new BancodeDados().ExecutarProcedure<Manutencao>(
                     "SP_INCLUIR_CMANUTENCAO", ParametrosEntrada.ToArray());
@@ -91,9 +94,12 @@ namespace api_manutencoes.Controllers
                 ParametrosEntrada.Add(new SqlParameter("@CMID", modelo.IdManutencao));
                 ParametrosEntrada.Add(new SqlParameter("@CMPLACAVEICULO", modelo.PlacaVeiculo));
                 ParametrosEntrada.Add(new SqlParameter("@CMDESCRICAO", modelo.Descricao));
+                ParametrosEntrada.Add(new SqlParameter("@CMTIPOMANUTENCAO", modelo.TipoManutencao));
+                ParametrosEntrada.Add(new SqlParameter("@CMPECAUSADA", modelo.PecaUsada));
+                ParametrosEntrada.Add(new SqlParameter("@CMVALOR", modelo.Valor));
 
                 await new BancodeDados().ExecutarProcedure<Manutencao>(
-                    "SP_ALTERAR_CMANUTENCAO", ParametrosEntrada.ToArray());
+                    "SP_ALTERA_CMANUTENCAO", ParametrosEntrada.ToArray());
             }
             catch (Exception E)
             {

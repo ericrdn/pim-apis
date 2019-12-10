@@ -23,6 +23,15 @@ namespace api_manutencoes
 
         [Coluna("CMDESCRICAO")]
         public string Descricao { get; set; }
+
+        [Coluna("@CMTIPOMANUTENCAO")]
+        public string TipoManutencao { get; set; }
+
+        [Coluna("CMPECAUSADA")]
+        public string PecaUsada { get; set; }
+
+        [Coluna("CMVALOR")]
+        public double Valor { get; set; }
     }
 
 }

@@ -40,6 +40,13 @@ namespace api_usuarios
 
         [Coluna("CUCARTEIRATRABALHO")]
         public string CarteiraTrabalho { get; set; }
+
+        [Coluna("CUDATAVALIDADECNH")]
+        public DateTime DataValidadeCnh { get; set; }
+
+
+        [Coluna("CUDATAULTIMOEXAMEMEDICO")]
+        public DateTime DataUltimoExameMedico { get; set; }
     }
 
 }

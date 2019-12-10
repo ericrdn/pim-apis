@@ -20,6 +20,13 @@ namespace api_Peca
 
         [Coluna("TPDESCRICAO")]
         public string DescricaoPeca { get; set; }
+
+        [Coluna("TPDATAUSO")]
+        public DateTime DataUso { get; set; }
+
+        [Coluna("TPVALORPECA")]
+        public double ValorPeca { get; set; }
+
     }
 }
 
