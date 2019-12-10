@@ -26,5 +26,32 @@ namespace api_clientes
 
     }
 
+    public class DadosHome : RetornoAPI
+    {
+
+        [Coluna("VEICULOS_OPERACAO")]
+        public int QtdeVeiculos { get; set; }
+
+        [Coluna("VEICULOS_MANUTENCAO_MES")]
+        public int QtdeVeiculosManutencao { get; set; }
+
+        [Coluna("VALOR_MULTA_MES")]
+        public double ValorMulta { get; set; }
+
+        [Coluna("VALOR_MANUTENCAO")]
+        public double ValorManutencao { get; set; }
+
+        [Coluna("VALOR_PECAS")]
+        public double ValorPecas { get; set; }
+
+        [Coluna("VALOR_ESTACIONAMENTO")]
+        public double ValorEstacionamento { get; set; }
+
+        [Coluna("VALOR_COMBUSTIVEL")]
+        public double ValorCombustivel { get; set; }
+
+
+    }
+
 }
 

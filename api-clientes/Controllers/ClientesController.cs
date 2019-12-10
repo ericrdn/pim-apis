@@ -14,6 +14,25 @@ namespace api_clientes.Controllers
     [Route("api/[controller]")]
     public class ClientesController : ControllerBase
     {
+        [Route("DadosHome")]
+        [HttpGet]
+        public async Task<DadosHome> DadosHome()
+        {
+            var retorno = new DadosHome();
+
+            try
+            {
+                retorno = (await new BancodeDados().ExecutarProcedure<DadosHome>(
+                    "RETORNA_DADOS_HOME"))[0];
+            }
+            catch (Exception E)
+            {
+                retorno.StatusReq = Status.Erro;
+                retorno.MensagemErro = E.Message;
+            }
+
+            return retorno;
+        }
 
         [HttpGet]
         public async Task<Clientes> Get(int IdCliente)

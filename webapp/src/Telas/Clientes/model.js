@@ -7,7 +7,7 @@ export default function ModeloCliente(props) {
   return (
     <FormularioPadrao {...props}>
       <CampoCadastro
-        Nome="idReembolso"
+        Nome="idCliente"
         Descricao="Codigo"
         Tamanho={100}
         ExibeListagem
@@ -15,9 +15,16 @@ export default function ModeloCliente(props) {
         Chave
       />
       <CampoCadastro
-        Nome="desReembolso"
-        Descricao="Descrição Reembolso"
-        Tamanho={500}
+        Nome="cpf"
+        Descricao="CNPJ"
+        Tamanho={300}
+        ExibeListagem
+        QuantidadeCaracteres={20}
+      />
+      <CampoCadastro
+        Nome="nomeCliente"
+        Descricao="Nome Cliente"
+        Tamanho={300}
         ExibeListagem
         QuantidadeCaracteres={20}
       />

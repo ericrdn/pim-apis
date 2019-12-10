@@ -10,23 +10,20 @@ import Services from "../../Services/";
 
 const CarregaDados = () =>
   axios
-    .get(Services.urlAPITipoReembolso)
-    .then(response => ({ data: response.data.listaReembolsos }));
+    .get(Services.urlAPIClientes)
+    .then(response => ({ data: response.data.listaClientes }));
 
 const CarregaRegistro = Dados =>
   axios
-    .get(`${Services.urlAPITipoReembolso}?IdReembolso=${Dados.codigo}`)
-    .then(resp => ({ data: resp.data.listaReembolsos[0] }));
+    .get(`${Services.urlAPIClientes}?IdCliente=${Dados.codigo}`)
+    .then(resp => ({ data: resp.data.listaClientes[0] }));
 
-const AlterarRegistro = Dados => axios.put(Services.urlAPITipoReembolso, Dados);
+const AlterarRegistro = Dados => axios.put(Services.urlAPIClientes, Dados);
 
-const IncluirRegistro = Dados =>
-  axios.post(Services.urlAPITipoReembolso, Dados);
+const IncluirRegistro = Dados => axios.post(Services.urlAPIClientes, Dados);
 
 const ExcluirRegistro = Dados =>
-  axios.delete(
-    `${Services.urlAPITipoReembolso}?IdReembolso=${Dados.idReembolso}`
-  );
+  axios.delete(`${Services.urlAPIClientes}?IdCliente=${Dados.idCliente}`);
 
 const NomeCadastro = "Cliente";
 const NomeCadastroPlural = "Clientes";
