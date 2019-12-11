@@ -24,7 +24,7 @@ namespace api_manutencoes
         [Coluna("CMDESCRICAO")]
         public string Descricao { get; set; }
 
-        [Coluna("@CMTIPOMANUTENCAO")]
+        [Coluna("CMTIPOMANUTENCAO")]
         public string TipoManutencao { get; set; }
 
         [Coluna("CMPECAUSADA")]
