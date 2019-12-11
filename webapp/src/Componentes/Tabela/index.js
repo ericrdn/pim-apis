@@ -1,24 +1,24 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import clsx from 'clsx';
-import { lighten, makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TablePagination from '@material-ui/core/TablePagination';
-import TableRow from '@material-ui/core/TableRow';
-import TableSortLabel from '@material-ui/core/TableSortLabel';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
-import Checkbox from '@material-ui/core/Checkbox';
-import IconButton from '@material-ui/core/IconButton';
-import Tooltip from '@material-ui/core/Tooltip';
-import DeleteIcon from '@material-ui/icons/Delete';
-import FilterListIcon from '@material-ui/icons/FilterList';
+import React from "react";
+import PropTypes from "prop-types";
+import clsx from "clsx";
+import { lighten, makeStyles } from "@material-ui/core/styles";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableHead from "@material-ui/core/TableHead";
+import TablePagination from "@material-ui/core/TablePagination";
+import TableRow from "@material-ui/core/TableRow";
+import TableSortLabel from "@material-ui/core/TableSortLabel";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import Paper from "@material-ui/core/Paper";
+import Checkbox from "@material-ui/core/Checkbox";
+import IconButton from "@material-ui/core/IconButton";
+import Tooltip from "@material-ui/core/Tooltip";
+import DeleteIcon from "@material-ui/icons/Delete";
+import FilterListIcon from "@material-ui/icons/FilterList";
 
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 function desc(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -37,11 +37,11 @@ function stableSort(array, cmp) {
     if (order !== 0) return order;
     return a[1] - b[1];
   });
-  return stabilizedThis.map((el) => el[0]);
+  return stabilizedThis.map(el => el[0]);
 }
 
 function getSorting(order, orderBy) {
-  return order === 'desc'
+  return order === "desc"
     ? (a, b) => desc(a, b, orderBy)
     : (a, b) => -desc(a, b, orderBy);
 }
@@ -56,9 +56,9 @@ function EnhancedTableHead(props) {
     rowCount,
     onRequestSort,
     headCells,
-    SelecionarItens,
+    SelecionarItens
   } = props;
-  const createSortHandler = (property) => (event) => {
+  const createSortHandler = property => event => {
     onRequestSort(event, property);
   };
 
@@ -71,17 +71,17 @@ function EnhancedTableHead(props) {
               indeterminate={numSelected > 0 && numSelected < rowCount}
               checked={numSelected === rowCount}
               onChange={onSelectAllClick}
-              inputProps={{ 'aria-label': 'select all desserts' }}
+              inputProps={{ "aria-label": "select all desserts" }}
             />
           </TableCell>
         ) : null}
         {headCells
-          .filter((item) => item.id !== 'codigo')
-          .map((headCell) => (
+          .filter(item => item.id !== "codigo")
+          .map(headCell => (
             <TableCell
               key={JSON.stringify(headCell)}
-              align={headCell.alinha || 'left'}
-              padding={headCell.disablePadding ? 'none' : 'default'}
+              align={headCell.alinha || "left"}
+              padding={headCell.disablePadding ? "none" : "default"}
               sortDirection={orderBy === headCell.id ? order : false}
             >
               <TableSortLabel
@@ -92,9 +92,9 @@ function EnhancedTableHead(props) {
                 <b>{headCell.label}</b>
                 {orderBy === headCell.id ? (
                   <span className={classes.visuallyHidden}>
-                    {order === 'desc'
-                      ? 'sorted descending'
-                      : 'sorted ascending'}
+                    {order === "desc"
+                      ? "sorted descending"
+                      : "sorted ascending"}
                   </span>
                 ) : null}
               </TableSortLabel>
@@ -110,41 +110,41 @@ EnhancedTableHead.propTypes = {
   numSelected: PropTypes.number.isRequired,
   onRequestSort: PropTypes.func.isRequired,
   onSelectAllClick: PropTypes.func.isRequired,
-  order: PropTypes.oneOf(['asc', 'desc']).isRequired,
+  order: PropTypes.oneOf(["asc", "desc"]).isRequired,
   orderBy: PropTypes.string.isRequired,
   rowCount: PropTypes.number.isRequired,
   headCells: PropTypes.array.isRequired,
-  SelecionarItens: PropTypes.bool.isRequired,
+  SelecionarItens: PropTypes.bool.isRequired
 };
 
-const useToolbarStyles = makeStyles((theme) => ({
+const useToolbarStyles = makeStyles(theme => ({
   root: {
     paddingLeft: theme.spacing(2),
-    paddingRight: theme.spacing(1),
+    paddingRight: theme.spacing(1)
   },
   highlight:
-    theme.palette.type === 'light'
+    theme.palette.type === "light"
       ? {
-        color: theme.palette.secondary.main,
-        backgroundColor: lighten(theme.palette.secondary.light, 0.85),
-      }
+          color: theme.palette.secondary.main,
+          backgroundColor: lighten(theme.palette.secondary.light, 0.85)
+        }
       : {
-        color: theme.palette.text.primary,
-        backgroundColor: theme.palette.secondary.dark,
-      },
+          color: theme.palette.text.primary,
+          backgroundColor: theme.palette.secondary.dark
+        },
   title: {
-    flex: '1 1 100%',
-  },
+    flex: "1 1 100%"
+  }
 }));
 
-const EnhancedTableToolbar = (props) => {
+const EnhancedTableToolbar = props => {
   const classes = useToolbarStyles();
   const { numSelected, Titulo } = props;
 
   return (
     <Toolbar
       className={clsx(classes.root, {
-        [classes.highlight]: numSelected > 0,
+        [classes.highlight]: numSelected > 0
       })}
     >
       {numSelected > 0 ? (
@@ -153,10 +153,8 @@ const EnhancedTableToolbar = (props) => {
           color="inherit"
           variant="subtitle1"
         >
-          {numSelected}
-{' '}
-selected
-</Typography>
+          {numSelected} selected
+        </Typography>
       ) : (
         <Typography className={classes.title} variant="h6" id="tableTitle">
           {Titulo}
@@ -181,35 +179,35 @@ selected
 };
 
 EnhancedTableToolbar.propTypes = {
-  numSelected: PropTypes.number.isRequired,
+  numSelected: PropTypes.number.isRequired
 };
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
-    width: '100%',
-    marginTop: theme.spacing(3),
+    width: "100%",
+    marginTop: theme.spacing(3)
   },
   paper: {
-    width: '100%',
-    marginBottom: theme.spacing(2),
+    width: "100%",
+    marginBottom: theme.spacing(2)
   },
   table: {
-    minWidth: 750,
+    minWidth: 750
   },
   tableWrapper: {
-    overflowX: 'auto',
+    overflowX: "auto"
   },
   visuallyHidden: {
     border: 0,
-    clip: 'rect(0 0 0 0)',
+    clip: "rect(0 0 0 0)",
     height: 1,
     margin: -1,
-    overflow: 'hidden',
+    overflow: "hidden",
     padding: 0,
-    position: 'absolute',
+    position: "absolute",
     top: 20,
-    width: 1,
-  },
+    width: 1
+  }
 }));
 
 export default function EnhancedTable({
@@ -217,41 +215,41 @@ export default function EnhancedTable({
   SelecionarItens,
   Comprimido,
   Titulo,
-  Acoes,
+  Acoes
 }) {
-  const headCells = Object.entries(Dados[0]).map((item) => ({
+  const headCells = Object.entries(Dados[0]).map(item => ({
     id: item[0],
-    alinha: 'left',
-    label: item[0],
+    alinha: "left",
+    label: item[0]
   }));
 
   if (Acoes) {
     headCells.push({
-      id: 'acoes',
-      alinha: 'center',
-      label: 'Acões',
+      id: "acoes",
+      alinha: "center",
+      label: "Ações"
     });
   }
 
   const rows = Dados;
 
   const classes = useStyles();
-  const [order, setOrder] = React.useState('asc');
-  const [orderBy, setOrderBy] = React.useState('calories');
+  const [order, setOrder] = React.useState("asc");
+  const [orderBy, setOrderBy] = React.useState("calories");
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const dense = Comprimido;
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
   const handleRequestSort = (event, property) => {
-    const isDesc = orderBy === property && order === 'desc';
-    setOrder(isDesc ? 'asc' : 'desc');
+    const isDesc = orderBy === property && order === "desc";
+    setOrder(isDesc ? "asc" : "desc");
     setOrderBy(property);
   };
 
-  const handleSelectAllClick = (event) => {
+  const handleSelectAllClick = event => {
     if (event.target.checked) {
-      const newSelecteds = rows.map((n) => n.name);
+      const newSelecteds = rows.map(n => n.name);
       setSelected(newSelecteds);
       return;
     }
@@ -271,7 +269,7 @@ export default function EnhancedTable({
     } else if (selectedIndex > 0) {
       newSelected = newSelected.concat(
         selected.slice(0, selectedIndex),
-        selected.slice(selectedIndex + 1),
+        selected.slice(selectedIndex + 1)
       );
     }
 
@@ -282,14 +280,15 @@ export default function EnhancedTable({
     setPage(newPage);
   };
 
-  const handleChangeRowsPerPage = (event) => {
+  const handleChangeRowsPerPage = event => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
 
-  const isSelected = (name) => selected.indexOf(name) !== -1;
+  const isSelected = name => selected.indexOf(name) !== -1;
 
-  const emptyRows =    rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+  const emptyRows =
+    rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
   return (
     <div className={classes.root}>
@@ -299,7 +298,7 @@ export default function EnhancedTable({
           <Table
             className={classes.table}
             aria-labelledby="tableTitle"
-            size={dense ? 'small' : 'medium'}
+            size={dense ? "small" : "medium"}
             aria-label="enhanced table"
           >
             <EnhancedTableHead
@@ -325,7 +324,7 @@ export default function EnhancedTable({
                       hover
                       onClick={
                         SelecionarItens
-                          ? (event) => handleClick(event, row.name)
+                          ? event => handleClick(event, row.name)
                           : null
                       }
                       role="checkbox"
@@ -338,19 +337,19 @@ export default function EnhancedTable({
                         <TableCell padding="checkbox">
                           <Checkbox
                             checked={isItemSelected}
-                            inputProps={{ 'aria-labelledby': labelId }}
+                            inputProps={{ "aria-labelledby": labelId }}
                           />
                         </TableCell>
                       ) : null}
 
                       {headCells
                         .filter(
-                          (item) => item.id !== 'acoes' && item.id !== 'codigo',
+                          item => item.id !== "acoes" && item.id !== "codigo"
                         )
-                        .map((coluna) => (
+                        .map(coluna => (
                           <TableCell
                             key={JSON.stringify(coluna)}
-                            align={coluna.numeric ? 'right' : 'left'}
+                            align={coluna.numeric ? "right" : "left"}
                           >
                             {row[coluna.id]}
                           </TableCell>
@@ -358,7 +357,7 @@ export default function EnhancedTable({
 
                       {Acoes ? (
                         <TableCell align="center">
-                          {Acoes.map((item) => (
+                          {Acoes.map(item => (
                             <Tooltip title={item.Texto} key={item.Texto}>
                               <IconButton
                                 aria-label="delete"
@@ -367,7 +366,7 @@ export default function EnhancedTable({
                                 }
                                 component={Link}
                                 to={
-                                  typeof item.to === 'function'
+                                  typeof item.to === "function"
                                     ? item.to(row)
                                     : item.to
                                 }
@@ -409,10 +408,10 @@ export default function EnhancedTable({
           rowsPerPage={rowsPerPage}
           page={page}
           backIconButtonProps={{
-            'aria-label': 'previous page',
+            "aria-label": "previous page"
           }}
           nextIconButtonProps={{
-            'aria-label': 'next page',
+            "aria-label": "next page"
           }}
           onChangePage={handleChangePage}
           onChangeRowsPerPage={handleChangeRowsPerPage}

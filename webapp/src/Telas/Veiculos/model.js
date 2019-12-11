@@ -16,7 +16,29 @@ export default function ModeloCliente(props) {
         Obrigatorio
         Chave
       />
-      <CampoCadastro Nome="cgcProp" Descricao="CNPJ Dono" Tamanho={300} />
+      <CampoCadastro
+        Nome="cgcProp"
+        Descricao="CNPJ Dono"
+        Tamanho={300}
+        CampoCNPJ
+      />
+      <CampoCadastro
+        Nome="tipoVeic"
+        Descricao="Tipo Veículo"
+        Tamanho={300}
+        Obrigatorio
+        TipoCampo="int"
+        Select={[
+          { Valor: "1", Descricao: "Carro" },
+          { Valor: "2", Descricao: "Minivan" },
+          { Valor: "3", Descricao: "Van" },
+          { Valor: "4", Descricao: "Carro Eletrico" }
+        ]}
+        // Select={Services.TipoVeiculos.ConsultarTodos.then((i) => i.data.listaVeiculos.map((item) => ({
+        //     Valor: item.idVeiculo,
+        //     Descricao: item.descricaoTipo,
+        //   })),)}
+      />
       <CampoCadastro
         Nome="chassi"
         Descricao="Chassi"
@@ -52,21 +74,24 @@ export default function ModeloCliente(props) {
         TipoCampo="int"
       />
       <CampoCadastro
-        Nome="tipoVeic"
-        Descricao="Tipo Veículo"
-        Tamanho={300}
+        Nome="quilometragem"
+        Descricao="Quilometragem"
+        Tamanho={160}
         Obrigatorio
         TipoCampo="int"
-        Select={[
-          { Valor: "1", Descricao: "Carro" },
-          { Valor: "2", Descricao: "Minivan" },
-          { Valor: "3", Descricao: "Van" },
-          { Valor: "4", Descricao: "Carro Eletrico" }
-        ]}
-        // Select={Services.TipoVeiculos.ConsultarTodos.then((i) => i.data.listaVeiculos.map((item) => ({
-        //     Valor: item.idVeiculo,
-        //     Descricao: item.descricaoTipo,
-        //   })),)}
+      />
+      <CampoCadastro
+        Nome="nomeSeguradora"
+        Descricao="Nome Seguradora"
+        Tamanho={160}
+        Obrigatorio
+      />
+      <CampoCadastro
+        Nome="validadeSeguro"
+        Descricao="Validade Seguro"
+        Tamanho={300}
+        Obrigatorio
+        CampoData
       />
     </FormularioPadrao>
   );

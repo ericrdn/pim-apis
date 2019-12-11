@@ -1,8 +1,8 @@
 import axios from "axios";
 
-// const UrlBase = 'http://192.168.0.9/';
+const UrlBase = "http://pim2019.ddns.net:15001/";
 
-const UrlBase = "http://localhost:5000/";
+//const UrlBase = "http://localhost:5000/";
 
 const ParametrizacaoURL = {
   urlAPIClientes: `${UrlBase}api/clientes/`,
@@ -24,9 +24,13 @@ export default {
   TipoVeiculos: {
     ConsultarTodos: axios.get(ParametrizacaoURL.urlAPITipoVeiculo)
   },
+
+  Usuarios: {
+    ConsultarTodos: () => axios.get(ParametrizacaoURL.urlAPIUsuarios)
+  },
+
   DadosGerais: {
-    ConsultarDadosHome: axios.get(
-      `${ParametrizacaoURL.urlAPIClientes}DadosHome`
-    )
+    ConsultarDadosHome: () =>
+      axios.get(`${ParametrizacaoURL.urlAPIClientes}DadosHome`)
   }
 };
