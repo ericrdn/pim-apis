@@ -12,8 +12,10 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import LocalAtmIcon from "@material-ui/icons/LocalAtm";
 import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import AssignmentIcon from "@material-ui/icons/Assignment";
+import MapIcon from "@material-ui/icons/Map";
 
 import Home from "../Telas/Home";
+import Mapa from "../Telas/Mapa";
 
 import ClientesController from "../Telas/Clientes/controller";
 import MultasController from "../Telas/Multas/controller";
@@ -60,6 +62,8 @@ function RotaCadastro({ rotaBase, Nome, Controller, Icone }) {
 
 export default function Rotas() {
   const Rotas = [Rota("/", "Home", Home, <HomeIcon />)];
+
+  //Rotas.push(Rota("/mapa", "Mapa Veículos", Mapa, <MapIcon />));
 
   RotaCadastro({
     rotaBase: "/usuarios",

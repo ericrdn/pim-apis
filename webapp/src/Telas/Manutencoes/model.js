@@ -26,6 +26,18 @@ export default function ModeloCliente(props) {
         Tamanho={800}
         ExibeListagem
       />
+      <CampoCadastro
+        Nome="tipoManutencao"
+        Descricao="Tipo Manutenção"
+        Tamanho={300}
+      />
+      <CampoCadastro Nome="pecaUsada" Descricao="Peça Usada" Tamanho={300} />
+      <CampoCadastro
+        Nome="valor"
+        Descricao="Valor"
+        Tamanho={160}
+        TipoCampo="float"
+      />
     </FormularioPadrao>
   );
 }

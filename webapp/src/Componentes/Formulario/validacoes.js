@@ -1,22 +1,22 @@
 function validarCNPJ(cnpj) {
-  cnpj = cnpj.replace(/[^\d]+/g, '');
+  cnpj = cnpj.replace(/[^\d]+/g, "");
 
-  if (cnpj === '') return false;
+  if (cnpj === "") return false;
 
   if (cnpj.length !== 14) return false;
 
   // Elimina CNPJs invalidos conhecidos
   if (
-    cnpj === '00000000000000'
-    || cnpj === '11111111111111'
-    || cnpj === '22222222222222'
-    || cnpj === '33333333333333'
-    || cnpj === '44444444444444'
-    || cnpj === '55555555555555'
-    || cnpj === '66666666666666'
-    || cnpj === '77777777777777'
-    || cnpj === '88888888888888'
-    || cnpj === '99999999999999'
+    cnpj === "00000000000000" ||
+    cnpj === "11111111111111" ||
+    cnpj === "22222222222222" ||
+    cnpj === "33333333333333" ||
+    cnpj === "44444444444444" ||
+    cnpj === "55555555555555" ||
+    cnpj === "66666666666666" ||
+    cnpj === "77777777777777" ||
+    cnpj === "88888888888888" ||
+    cnpj === "99999999999999"
   ) {
     return false;
   }
@@ -32,7 +32,7 @@ function validarCNPJ(cnpj) {
     if (pos < 2) pos = 9;
   }
   let resultado = soma % 11 < 2 ? 0 : 11 - (soma % 11);
-  if (resultado !== digitos.charAt(0)) return false;
+  if (resultado != digitos.charAt(0)) return false;
 
   tamanho += 1;
   numeros = cnpj.substring(0, tamanho);
@@ -43,27 +43,27 @@ function validarCNPJ(cnpj) {
     if (pos < 2) pos = 9;
   }
   resultado = soma % 11 < 2 ? 0 : 11 - (soma % 11);
-  if (resultado !== digitos.charAt(1)) return false;
+  if (resultado != digitos.charAt(1)) return false;
 
   return true;
 }
 
 function validarCPF(cpf) {
-  cpf = cpf.replace(/[^\d]+/g, '');
-  if (cpf === '') return false;
+  cpf = cpf.replace(/[^\d]+/g, "");
+  if (cpf === "") return false;
   // Elimina CPFs invalidos conhecidos
   if (
-    cpf.length !== 11
-    || cpf === '00000000000'
-    || cpf === '11111111111'
-    || cpf === '22222222222'
-    || cpf === '33333333333'
-    || cpf === '44444444444'
-    || cpf === '55555555555'
-    || cpf === '66666666666'
-    || cpf === '77777777777'
-    || cpf === '88888888888'
-    || cpf === '99999999999'
+    cpf.length !== 11 ||
+    cpf === "00000000000" ||
+    cpf === "11111111111" ||
+    cpf === "22222222222" ||
+    cpf === "33333333333" ||
+    cpf === "44444444444" ||
+    cpf === "55555555555" ||
+    cpf === "66666666666" ||
+    cpf === "77777777777" ||
+    cpf === "88888888888" ||
+    cpf === "99999999999"
   ) {
     return false;
   }
@@ -84,14 +84,14 @@ function validarCPF(cpf) {
 
 function validarData(data) {
   if (data.length !== 10) return false;
-  const dia = Number(data.split('/')[0]);
-  const mes = Number(data.split('/')[1]);
-  const ano = Number(data.split('/')[2]);
+  const dia = Number(data.split("/")[0]);
+  const mes = Number(data.split("/")[1]);
+  const ano = Number(data.split("/")[2]);
   const MyData = new Date(ano, mes - 1, dia);
   if (
-    MyData.getMonth() + 1 !== mes
-    || MyData.getDate() !== dia
-    || MyData.getFullYear() !== ano
+    MyData.getMonth() + 1 !== mes ||
+    MyData.getDate() !== dia ||
+    MyData.getFullYear() !== ano
   ) {
     return false;
   }
@@ -102,22 +102,22 @@ function validarData(data) {
 const Validacoes = {
   ValidacaoCNPJ(CNPJ) {
     if (!validarCNPJ(CNPJ)) {
-      return { Erro: true, MensagemdoCampo: 'Digite um CNPJ Válido' };
+      return { Erro: true, MensagemdoCampo: "Digite um CNPJ Válido" };
     }
-    return { Erro: false, MensagemdoCampo: '' };
+    return { Erro: false, MensagemdoCampo: "" };
   },
   ValidacaoCPF(CNPJ) {
     if (!validarCPF(CNPJ)) {
-      return { Erro: true, MensagemdoCampo: 'Digite um CPF Válido' };
+      return { Erro: true, MensagemdoCampo: "Digite um CPF Válido" };
     }
-    return { Erro: false, MensagemdoCampo: '' };
+    return { Erro: false, MensagemdoCampo: "" };
   },
   ValidacaoData(Data) {
     if (!validarData(Data)) {
-      return { Erro: true, MensagemdoCampo: 'Data inválida' };
+      return { Erro: true, MensagemdoCampo: "Data inválida" };
     }
-    return { Erro: false, MensagemdoCampo: '' };
-  },
+    return { Erro: false, MensagemdoCampo: "" };
+  }
 };
 
 export default Validacoes;

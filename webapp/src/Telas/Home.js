@@ -18,6 +18,7 @@ import LocalParkingIcon from "@material-ui/icons/LocalParking";
 import OfflineBoltIcon from "@material-ui/icons/OfflineBolt";
 
 import { makeStyles } from "@material-ui/core/styles";
+import moment from "moment";
 
 import Services from "../Services";
 
@@ -90,16 +91,40 @@ function ListaLinhas({ Lista }) {
   );
 }
 
-export default function Home() {
-  const [Dados, setDados] = React.useState(undefined);
+function addDays(date, days) {
+  var result = new Date(date);
+  result.setDate(result.getDate() + days);
+  return result;
+}
+
+export default function Home(props) {
+  const [Dados, setDados] = React.useState([]);
 
   React.useEffect(() => {
-    Services.DadosGerais.ConsultarDadosHome.then(retorno => {
-      setDados(retorno.data);
-    });
-  }, []);
+    console.log(2);
+    Promise.all([
+      Services.DadosGerais.ConsultarDadosHome(),
+      Services.Usuarios.ConsultarTodos()
+    ]).then(retorno => {
+      let Usuarios = retorno[1].data.listaUsuarios;
+      let ExamesVencidos = [];
 
-  return !Dados ? (
+      if (Usuarios && Usuarios.length > 0) {
+        ExamesVencidos = Usuarios.filter(
+          item => new Date(item.dataUltimoExameMedico) < addDays(new Date(), 30)
+        );
+        Usuarios = Usuarios.filter(
+          item => new Date(item.dataValidadeCnh) < addDays(new Date(), 15)
+        );
+      } else Usuarios = [];
+
+      console.log(Usuarios);
+
+      setDados([retorno[0].data, Usuarios, ExamesVencidos]);
+    });
+  }, [props]);
+
+  return Dados.length === 0 ? (
     <CircularProgress
       size={24}
       style={{ width: 50, height: 50, marginTop: 30 }}
@@ -114,12 +139,12 @@ export default function Home() {
           Lista={[
             {
               Titulo: "Carros em operação",
-              Descricao: Dados.qtdeVeiculos + " carros",
+              Descricao: Dados[0].qtdeVeiculos + " carros",
               Icone: DriveEtaIcon
             },
             {
               Titulo: "Carros com manutenção no mês",
-              Descricao: Dados.qtdeVeiculosManutencao + " carros",
+              Descricao: Dados[0].qtdeVeiculosManutencao + " carros",
               Icone: SettingsIcon
             }
           ]}
@@ -133,17 +158,17 @@ export default function Home() {
           Lista={[
             {
               Titulo: "Multas",
-              Descricao: Dados.valorMulta.formatMoney(2, "R$ ", ".", ","),
+              Descricao: Dados[0].valorMulta.formatMoney(2, "R$ ", ".", ","),
               Icone: DriveEtaIcon
             },
             {
               Titulo: "Peças",
-              Descricao: Dados.valorPecas.formatMoney(2, "R$ ", ".", ","),
+              Descricao: Dados[0].valorPecas.formatMoney(2, "R$ ", ".", ","),
               Icone: SettingsIcon
             },
             {
               Titulo: "Estacionamento",
-              Descricao: Dados.valorEstacionamento.formatMoney(
+              Descricao: Dados[0].valorEstacionamento.formatMoney(
                 2,
                 "R$ ",
                 ".",
@@ -153,11 +178,60 @@ export default function Home() {
             },
             {
               Titulo: "Manutenção",
-              Descricao: Dados.valorManutencao.formatMoney(2, "R$ ", ".", ","),
+              Descricao: Dados[0].valorManutencao.formatMoney(
+                2,
+                "R$ ",
+                ".",
+                ","
+              ),
               Icone: OfflineBoltIcon
             }
           ]}
         />
+      </Paper>
+      <Paper elevation={4} style={{ padding: 20, margin: 20 }}>
+        <Typography variant="h5" component="h3">
+          <b>CNH Vencidas ou com vencimento em 15 dias</b>
+        </Typography>
+
+        {Dados[1].length > 0 ? (
+          <ListaLinhas
+            Lista={Dados[1].map(item => ({
+              Titulo: item.nome,
+              Descricao: `Vencimento em : ${moment(item.dataValidadeCnh).format(
+                "DD/MM/YYYY"
+              )}`,
+              Icone: DriveEtaIcon
+            }))}
+          />
+        ) : (
+          <>
+            <br />
+            <i>Todos em dia</i>
+          </>
+        )}
+      </Paper>
+      <Paper elevation={4} style={{ padding: 20, margin: 20 }}>
+        <Typography variant="h5" component="h3">
+          <b>Exames Vencidos ou com vencimento em 30 dias</b>
+        </Typography>
+
+        {Dados[2].length > 0 ? (
+          <ListaLinhas
+            Lista={Dados[2].map(item => ({
+              Titulo: item.nome,
+              Descricao: `Vencimento em : ${moment(item.dataValidadeCnh).format(
+                "DD/MM/YYYY"
+              )}`,
+              Icone: DriveEtaIcon
+            }))}
+          />
+        ) : (
+          <>
+            <br />
+            <i>Todos em dia</i>
+          </>
+        )}
       </Paper>
     </div>
   );
