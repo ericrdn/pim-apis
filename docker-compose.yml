@@ -18,6 +18,7 @@ services:
       - api-estoquepecas
       - api-multas
       - api-manutencao
+      - api-clientes
     networks:
       - rede
     ports:
@@ -30,6 +31,17 @@ services:
       - rede
     environment:
       - ROTA=api/multas/documentacao
+      - SERVER_BD=banco-dados
+      - USER_BD=sa
+      - PASSWORD_BD=Password@123
+  api-clientes:
+    build: ./api-clientes
+    image: "api-clientes"
+    container_name: api-clientes
+    networks:
+      - rede
+    environment:
+      - ROTA=api/clientes/documentacao
       - SERVER_BD=banco-dados
       - USER_BD=sa
       - PASSWORD_BD=Password@123

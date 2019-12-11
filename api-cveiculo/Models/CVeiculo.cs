@@ -38,6 +38,18 @@ namespace api_cveiculos
 
         [Coluna("CVTIPOVEICULO")]
         public int TipoVeic { get; set; }
+
+        [Coluna("CVQUILOMETRAGEM")]
+        public int Quilometragem { get; set; }
+
+        [Coluna("CVVALIDADESEGURO")]
+        public DateTime ValidadeSeguro { get; set; }
+
+        [Coluna("CVNOMESEGURADORA")]
+        public string NomeSeguradora { get; set; }
+
+        [Coluna("CVNUMEROAPOLICE")]
+        public int NumeroApolice { get; set; }
     }
 
 }

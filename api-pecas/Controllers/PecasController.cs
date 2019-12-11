@@ -45,6 +45,8 @@ namespace api_pecas.Controllers
             {
                 List<SqlParameter> ParametrosEntrada = new List<SqlParameter>();
                 ParametrosEntrada.Add(new SqlParameter("@TPDESCRICAO", modelo.DescricaoPeca));
+                ParametrosEntrada.Add(new SqlParameter("@TPDATAUSO", modelo.DataUso));
+                ParametrosEntrada.Add(new SqlParameter("@TPVALORPECA", modelo.ValorPeca));
 
                 await new BancodeDados().ExecutarProcedure<Peca>(
                     "SP_INCLUIR_TPECAS", ParametrosEntrada.ToArray());
@@ -87,9 +89,10 @@ namespace api_pecas.Controllers
             try
             {
                 List<SqlParameter> ParametrosEntrada = new List<SqlParameter>();
-
                 ParametrosEntrada.Add(new SqlParameter("@TPID", modelo.IdPeca));
                 ParametrosEntrada.Add(new SqlParameter("@TPDESCRICAO", modelo.DescricaoPeca));
+                ParametrosEntrada.Add(new SqlParameter("@TPDATAUSO", modelo.DataUso));
+                ParametrosEntrada.Add(new SqlParameter("@TPVALORPECA", modelo.ValorPeca));
 
                 await new BancodeDados().ExecutarProcedure<Peca>(
                     "SP_ALTERA_TPECAS", ParametrosEntrada.ToArray());

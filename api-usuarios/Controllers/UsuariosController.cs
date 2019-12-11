@@ -50,6 +50,8 @@ namespace api_usuarios.Controllers
                 ParametrosEntrada.Add(new SqlParameter("@CUTPUSUARIO", modelo.TpUsuario));
                 ParametrosEntrada.Add(new SqlParameter("@CUIDENDERECO", modelo.IdEndereco));
                 ParametrosEntrada.Add(new SqlParameter("@CUCARTEIRATRABALHO", modelo.CarteiraTrabalho));
+                ParametrosEntrada.Add(new SqlParameter("@CUDATAVALIDADECNH", modelo.DataValidadeCnh));
+                ParametrosEntrada.Add(new SqlParameter("@CUDATAULTIMOEXAMEMEDICO", modelo.DataUltimoExameMedico));
 
                 await new BancodeDados().ExecutarProcedure<Usuario>(
                     "SP_INCLUIR_CUSUARIOS", ParametrosEntrada.ToArray());
@@ -101,6 +103,8 @@ namespace api_usuarios.Controllers
                 ParametrosEntrada.Add(new SqlParameter("@CUTPUSUARIO", modelo.TpUsuario));
                 ParametrosEntrada.Add(new SqlParameter("@CUIDENDERECO", modelo.IdEndereco));
                 ParametrosEntrada.Add(new SqlParameter("@CUCARTEIRATRABALHO", modelo.CarteiraTrabalho));
+                ParametrosEntrada.Add(new SqlParameter("@CUDATAVALIDADECNH", modelo.DataValidadeCnh));
+                ParametrosEntrada.Add(new SqlParameter("@CUDATAULTIMOEXAMEMEDICO", modelo.DataUltimoExameMedico));
 
                 await new BancodeDados().ExecutarProcedure<Usuario>(
                     "SP_ALTERA_CUSUARIOS", ParametrosEntrada.ToArray());
