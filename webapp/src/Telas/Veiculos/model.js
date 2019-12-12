@@ -28,16 +28,15 @@ export default function ModeloCliente(props) {
         Tamanho={300}
         Obrigatorio
         TipoCampo="int"
-        Select={[
-          { Valor: "1", Descricao: "Carro" },
-          { Valor: "2", Descricao: "Minivan" },
-          { Valor: "3", Descricao: "Van" },
-          { Valor: "4", Descricao: "Carro Eletrico" }
-        ]}
-        // Select={Services.TipoVeiculos.ConsultarTodos.then((i) => i.data.listaVeiculos.map((item) => ({
-        //     Valor: item.idVeiculo,
-        //     Descricao: item.descricaoTipo,
-        //   })),)}
+        Select={[]}
+        DadosSelect={() =>
+          Services.TipoVeiculos.ConsultarTodos().then(i =>
+            i.data.listaVeiculos.map(item => ({
+              Valor: String(item.idVeiculo),
+              Descricao: item.descricaoTipo
+            }))
+          )
+        }
       />
       <CampoCadastro
         Nome="chassi"
@@ -88,13 +87,13 @@ export default function ModeloCliente(props) {
           { Valor: "Triumph", Descricao: "Triumph" },
           { Valor: "VolksWagen", Descricao: "VolksWagen" },
           { Valor: "Volvo", Descricao: "Volvo" },
-          { Valor: "Yamaha", Descricao: "Yamaha" },
+          { Valor: "Yamaha", Descricao: "Yamaha" }
         ]}
         // Select={Services.TipoVeiculos.ConsultarTodos.then((i) => i.data.listaVeiculos.map((item) => ({
         //     Valor: item.idVeiculo,
         //     Descricao: item.descricaoTipo,
         //   })),)}
-      />      
+      />
       <CampoCadastro
         Nome="modelo"
         Descricao="Modelo"
@@ -102,6 +101,7 @@ export default function ModeloCliente(props) {
         Obrigatorio
         ExibeListagem
       />
+
       <CampoCadastro
         Nome="cor"
         Descricao="Cor"

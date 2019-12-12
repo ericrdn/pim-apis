@@ -30,8 +30,12 @@ export default function ModeloCliente(props) {
         Nome="tipoManutencao"
         Descricao="Tipo Manutenção"
         Tamanho={300}
+        Select={[
+          { Valor: "Corretiva", Descricao: "Corretiva" },
+          { Valor: "Preventiva", Descricao: "Preventiva" }
+        ]}
       />
-      <CampoCadastro Nome="pecaUsada" Descricao="Peça Usada" Tamanho={300} />
+      <CampoCadastro Nome="pecaUsada" Descricao="Mecânico" Tamanho={300} />
       <CampoCadastro
         Nome="valor"
         Descricao="Valor"

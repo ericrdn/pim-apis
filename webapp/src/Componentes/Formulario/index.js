@@ -81,7 +81,8 @@ function OpcoesItem({ Opcoes, DadosSelect }) {
 }
 
 export function FormularioPadrao(props) {
-  const { Dados, children, handleGravacao, DadosSelect } = props;
+  const { DadosCadastro, children, handleGravacao } = props;
+  const [Dados, DadosSelect] = DadosCadastro;
   const classes = useStyles();
   const DadosAlertaInicial = {
     Aberto: false,
@@ -326,6 +327,15 @@ export function FormularioPadrao(props) {
                   />
                 ) : (
                   <FormControl className={classes.textField} variant="filled">
+                    {(() =>
+                      console.log(
+                        item.Select.length === 0 && Dados !== {}
+                          ? DadosSelect.find(c => c.Campo === item.Nome)
+                            ? DadosSelect.find(c => c.Campo === item.Nome)
+                                .DadosSelectCarregado
+                            : []
+                          : item.Select
+                      ))()}
                     <InputLabel>{item.Descricao}</InputLabel>
                     <Select
                       value={
@@ -337,7 +347,13 @@ export function FormularioPadrao(props) {
                         Conteudo[item.Nome]
                       )}
                     >
-                      {item.Select.map(item => (
+                      {(item.Select.length === 0 && Dados !== {}
+                        ? DadosSelect.find(c => c.Campo === item.Nome)
+                          ? DadosSelect.find(c => c.Campo === item.Nome)
+                              .DadosSelectCarregado
+                          : []
+                        : item.Select
+                      ).map(item => (
                         <MenuItem value={item.Valor}>{item.Descricao}</MenuItem>
                       ))}
                     </Select>

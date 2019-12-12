@@ -1,6 +1,6 @@
 import React from "react";
 import { CampoCadastro, FormularioPadrao } from "../../Componentes/Formulario";
-
+import Services from "../../Services";
 // import { Container } from './styles';
 
 export default function ModeloCliente(props) {
@@ -19,7 +19,17 @@ export default function ModeloCliente(props) {
         Descricao="Tipo Reembolso"
         Tamanho={160}
         TipoCampo="int"
+        Select={[]}
+        DadosSelect={() =>
+          Services.TipoUsuarios.ConsultarTodos().then(i =>
+            i.data.listaReembolsos.map(item => ({
+              Valor: String(item.idReembolso),
+              Descricao: item.desReembolso
+            }))
+          )
+        }
       />
+
       <CampoCadastro
         Nome="placa"
         Descricao="Placa"
@@ -27,11 +37,7 @@ export default function ModeloCliente(props) {
         ExibeListagem
         QuantidadeCaracteres={20}
       />
-      <CampoCadastro
-        Nome="endereco"
-        Descricao="Endereço"
-        Tamanho={460}
-      />
+      <CampoCadastro Nome="endereco" Descricao="Endereço" Tamanho={460} />
       <CampoCadastro
         Nome="valor"
         Descricao="Valor"

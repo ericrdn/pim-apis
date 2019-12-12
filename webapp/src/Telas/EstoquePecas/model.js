@@ -1,6 +1,6 @@
-import React from 'react';
-import { CampoCadastro, FormularioPadrao } from '../../Componentes/Formulario';
-
+import React from "react";
+import { CampoCadastro, FormularioPadrao } from "../../Componentes/Formulario";
+import Services from "../../Services";
 // import { Container } from './styles';
 
 export default function ModeloCliente(props) {
@@ -16,9 +16,18 @@ export default function ModeloCliente(props) {
       />
       <CampoCadastro
         Nome="idPeca"
-        Descricao="ID Peça"
+        Descricao="Peça"
         Tamanho={160}
         TipoCampo="int"
+        Select={[]}
+        DadosSelect={() =>
+          Services.Pecas.ConsultarTodos().then(i =>
+            i.data.listaPecas.map(item => ({
+              Valor: String(item.idPeca),
+              Descricao: item.descricaoPeca
+            }))
+          )
+        }
       />
       <CampoCadastro
         Nome="placaVeiculo"
@@ -36,9 +45,18 @@ export default function ModeloCliente(props) {
       />
       <CampoCadastro
         Nome="idManutencao"
-        Descricao="ID Manutenção"
+        Descricao="Manutenção"
         Tamanho={160}
         TipoCampo="int"
+        Select={[]}
+        DadosSelect={() =>
+          Services.Manutencoes.ConsultarTodos().then(i =>
+            i.data.listaManutencoes.map(item => ({
+              Valor: String(item.idManutencao),
+              Descricao: item.descricao
+            }))
+          )
+        }
       />
     </FormularioPadrao>
   );

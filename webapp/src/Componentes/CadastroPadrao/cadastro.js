@@ -17,16 +17,29 @@ export default function Dados(props) {
     Modelo
   } = props;
   const Inclusao = Object.entries(match.params).length === 0;
-  const [DadosCadastro, setDadosCadastro] = React.useState({});
+  const [DadosCadastro, setDadosCadastro] = React.useState([{}, []]);
   const history = useHistory();
   React.useEffect(() => {
+    const DadosSelect = Modelo()
+      .props.children.map(i => i.props)
+      .filter(f => f.DadosSelect)
+      .map(q =>
+        q.DadosSelect().then(dados => ({
+          Campo: q.Nome,
+          DadosSelectCarregado: dados
+        }))
+      );
+
     if (!Inclusao) {
       setCarregando(true);
-      CarregaRegistro(match.params)
+
+      Promise.all([CarregaRegistro(match.params), ...DadosSelect])
         .then(async response => {
           setCarregando(false);
 
-          let Dados = response.data;
+          let Dados = response[0].data;
+
+          const DadosSelect = response.slice(1);
 
           if (Dados.resultado === "ERRO") throw Dados.mensagemErro;
 
@@ -40,7 +53,7 @@ export default function Dados(props) {
             }
           }
 
-          setDadosCadastro(Dados);
+          setDadosCadastro([Dados, DadosSelect]);
         })
         .catch(err =>
           AbrirAlerta(
@@ -48,6 +61,11 @@ export default function Dados(props) {
             `Houve um erro ao carregar o registro:\n${JSON.stringify(err)}`
           )
         );
+    } else {
+      Promise.all(DadosSelect).then(response => {
+        setCarregando(false);
+        setDadosCadastro([{}, response]);
+      });
     }
   }, [CarregaRegistro, match.params, Inclusao]);
 
@@ -110,7 +128,7 @@ export default function Dados(props) {
           />
           <h1>{`${Inclusao ? "Inclusão" : "Alteração"} de ${NomeCadastro}`}</h1>
           <Modelo
-            Dados={DadosCadastro}
+            DadosCadastro={DadosCadastro}
             handleGravacao={conteudo => eventoGravarDadosAPI(conteudo)}
           />
         </div>
