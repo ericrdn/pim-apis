@@ -111,10 +111,17 @@ export default function Rotas() {
 
   RotaCadastro({
     rotaBase: "/estoquepecas",
-    Nome: "Estoque Peças",
+    Nome: "Uso de Peças",
     Controller: EstoquePecasController,
     Icone: AssignmentIcon
   }).forEach(item => Rotas.push(item));
+
+  RotaCadastro({
+    rotaBase: "/pecas",
+    Nome: "Peças",
+    Controller: PecasController,
+    Icone: ShoppingCartIcon
+  }).forEach(item => Rotas.push(item));  
 
   Rotas.push({ menu: true, divisor: 1 });
 
@@ -139,12 +146,7 @@ export default function Rotas() {
     Icone: LocalAtmIcon
   }).forEach(item => Rotas.push(item));
 
-  RotaCadastro({
-    rotaBase: "/pecas",
-    Nome: "Tipo de Peças",
-    Controller: PecasController,
-    Icone: ShoppingCartIcon
-  }).forEach(item => Rotas.push(item));
+ 
 
   return Rotas;
 }

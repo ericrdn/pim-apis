@@ -30,8 +30,7 @@ export default function ModeloCliente(props) {
       <CampoCadastro
         Nome="endereco"
         Descricao="Endereço"
-        Tamanho={160}
-        TipoCampo="int"
+        Tamanho={460}
       />
       <CampoCadastro
         Nome="valor"

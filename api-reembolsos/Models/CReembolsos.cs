@@ -25,7 +25,7 @@ namespace api_creembolsos
         public string Placa { get; set; }
 
         [Coluna("CRIDENDERECO")]
-        public int Endereco { get; set; }
+        public string Endereco { get; set; }
 
         [Coluna("CRVALOR")]
         public float Valor { get; set; }

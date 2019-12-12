@@ -20,6 +20,7 @@ export default function ModeloCliente(props) {
         Tamanho={300}
         ExibeListagem
         QuantidadeCaracteres={20}
+        CampoCNPJ
       />
       <CampoCadastro
         Nome="nomeCliente"

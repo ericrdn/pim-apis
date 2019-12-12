@@ -23,7 +23,7 @@ const IncluirRegistro = (Dados) => axios.post(Services.urlAPIReembolso, Dados);
 const ExcluirRegistro = (Dados) => axios.delete(`${Services.urlAPIReembolso}?IdReembolso=${Dados.idReembolso}`);
 
 const NomeCadastro = 'Reembolso';
-const NomeCadastroPlural = 'Reembolsoo';
+const NomeCadastroPlural = 'Reembolso';
 
 const RotaCadastro = '/reembolso';
 const RotaInclusao = '/reembolso/incluir';

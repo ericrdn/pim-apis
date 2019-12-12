@@ -44,6 +44,7 @@ export default function ModeloCliente(props) {
         Obrigatorio
         Tamanho={300}
         QuantidadeCaracteres={20}
+        CampoCPF
       />
       <CampoCadastro
         Nome="cnh"
@@ -62,9 +63,8 @@ export default function ModeloCliente(props) {
       <CampoCadastro
         Nome="idEndereco"
         Descricao="Endereço"
-        Tamanho={160}
+        Tamanho={460}
         Obrigatorio
-        TipoCampo="int"
       />
       <CampoCadastro
         Nome="carteiraTrabalho"

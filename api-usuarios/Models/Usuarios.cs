@@ -35,7 +35,7 @@ namespace api_usuarios
 
 
         [Coluna("CUIDENDERECO")]
-        public int IdEndereco { get; set; }
+        public string IdEndereco { get; set; }
 
 
         [Coluna("CUCARTEIRATRABALHO")]
