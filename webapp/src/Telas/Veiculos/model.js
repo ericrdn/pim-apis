@@ -18,9 +18,17 @@ export default function ModeloCliente(props) {
       />
       <CampoCadastro
         Nome="cgcProp"
-        Descricao="CNPJ Dono"
+        Descricao="Cliente Responsavel"
         Tamanho={300}
-        CampoCNPJ
+        Select={[]}
+        DadosSelect={() =>
+          Services.Clientes.ConsultarTodos().then(i =>
+            i.data.listaClientes.map(item => ({
+              Valor: String(item.idCliente),
+              Descricao: `${String(item.idCliente)} - ${String(item.nomeCliente)}`
+            }))
+          )
+        }        
       />
       <CampoCadastro
         Nome="tipoVeic"
@@ -111,10 +119,15 @@ export default function ModeloCliente(props) {
       />
       <CampoCadastro
         Nome="ano"
-        Descricao="Ano"
+        Descricao="Status"
         Tamanho={300}
         Obrigatorio
         TipoCampo="int"
+        Select={[
+          
+          { Valor: "1", Descricao: "Ativo" },
+          { Valor: "2", Descricao: "Em manutenção" }]
+        }
       />
       <CampoCadastro
         Nome="quilometragem"

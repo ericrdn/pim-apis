@@ -7,7 +7,7 @@ import Rotas from "./rotas";
 import Login from "../Telas/Login/controller";
 
 function App(props) {
-  const [Autenticado, setAutenticado] = React.useState(true);
+  const [Autenticado, setAutenticado] = React.useState(false);
   return (
     <BrowserRouter>
       {Autenticado ? (
