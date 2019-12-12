@@ -22,11 +22,27 @@ export default {
   ...ParametrizacaoURL,
 
   TipoVeiculos: {
-    ConsultarTodos: axios.get(ParametrizacaoURL.urlAPITipoVeiculo)
+    ConsultarTodos: () => axios.get(ParametrizacaoURL.urlAPITipoVeiculo)
   },
 
   Usuarios: {
     ConsultarTodos: () => axios.get(ParametrizacaoURL.urlAPIUsuarios)
+  },
+
+  TipoUsuarios: {
+    ConsultarTodos: () => axios.get(ParametrizacaoURL.urlAPITipoUsuarios)
+  },
+
+  TipoUsuarios: {
+    ConsultarTodos: () => axios.get(ParametrizacaoURL.urlAPITipoReembolso)
+  },
+
+  Pecas: {
+    ConsultarTodos: () => axios.get(ParametrizacaoURL.urlPecas)
+  },
+
+  Manutencoes: {
+    ConsultarTodos: () => axios.get(ParametrizacaoURL.urlAPIManutencoes)
   },
 
   DadosGerais: {

@@ -1,5 +1,6 @@
 import React from "react";
 import { CampoCadastro, FormularioPadrao } from "../../Componentes/Formulario";
+import Services from "../../Services";
 
 // import { Container } from './styles';
 
@@ -28,15 +29,20 @@ export default function ModeloCliente(props) {
         Tamanho={300}
         Obrigatorio
         TipoCampo="int"
-        Select={[
-          { Valor: "1", Descricao: "Adiminstrativo" },
-          { Valor: "2", Descricao: "Motorista" },
-          { Valor: "3", Descricao: "Manutenção" }
-        ]}
-        // Select={Services.TipoVeiculos.ConsultarTodos.then((i) => i.data.listaVeiculos.map((item) => ({
-        //     Valor: item.idVeiculo,
-        //     Descricao: item.descricaoTipo,
-        //   })),)}
+        Select={[]}
+        DadosSelect={() =>
+          Services.TipoUsuarios.ConsultarTodos().then(i =>
+            i.data.listaUsuarios.map(item => ({
+              Valor: String(item.idUsuario),
+              Descricao: item.descricao
+            }))
+          )
+        }
+        // Select={[
+        //   { Valor: "1", Descricao: "Adiminstrativo" },
+        //   { Valor: "2", Descricao: "Motorista" },
+        //   { Valor: "3", Descricao: "Manutenção" }
+        // ]}
       />
       <CampoCadastro
         Nome="cnpjCpf"
