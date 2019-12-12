@@ -46,15 +46,58 @@ export default function ModeloCliente(props) {
         Tamanho={500}
       />
       <CampoCadastro
-        Nome="modelo"
-        Descricao="Modelo"
-        Tamanho={300}
-        Obrigatorio
-        ExibeListagem
-      />
-      <CampoCadastro
         Nome="marca"
         Descricao="Marca"
+        Tamanho={300}
+        Obrigatorio
+        Select={[
+          { Valor: "Aston Martin", Descricao: "Aston Martin" },
+          { Valor: "Audi", Descricao: "Audi" },
+          { Valor: "Bentley", Descricao: "Bentley" },
+          { Valor: "BMW", Descricao: "BMW" },
+          { Valor: "Chery", Descricao: "Chery" },
+          { Valor: "Chevrolet", Descricao: "Chevrolet" },
+          { Valor: "Chrysler", Descricao: "Chrysler" },
+          { Valor: "Citroën", Descricao: "Citroën" },
+          { Valor: "Dodge", Descricao: "Dodge" },
+          { Valor: "Ferrari", Descricao: "Ferrari" },
+          { Valor: "Fiat", Descricao: "Fiat" },
+          { Valor: "Ford", Descricao: "Ford" },
+          { Valor: "Honda", Descricao: "Honda" },
+          { Valor: "Hyundai", Descricao: "Hyundai" },
+          { Valor: "JAC", Descricao: "JAC" },
+          { Valor: "Jaguar", Descricao: "Jaguar" },
+          { Valor: "Jeep", Descricao: "Jeep" },
+          { Valor: "Kia", Descricao: "Kia" },
+          { Valor: "Lamborghini", Descricao: "Lamborghini" },
+          { Valor: "Land Rover", Descricao: "Land Rover" },
+          { Valor: "Lexus", Descricao: "Lexus" },
+          { Valor: "Lifan", Descricao: "Lifan" },
+          { Valor: "Maserati", Descricao: "Maserati" },
+          { Valor: "Mercedes-Benz", Descricao: "Mercedes-Benz" },
+          { Valor: "Mini", Descricao: "Mini" },
+          { Valor: "Mitsubishi", Descricao: "Mitsubishi" },
+          { Valor: "Nissan", Descricao: "Nissan" },
+          { Valor: "Peugeot", Descricao: "Peugeot" },
+          { Valor: "Porsche", Descricao: "Porsche" },
+          { Valor: "Renault", Descricao: "Renault" },
+          { Valor: "Smart", Descricao: "Smart" },
+          { Valor: "Subaru", Descricao: "Subaru" },
+          { Valor: "Suzuki", Descricao: "Suzuki" },
+          { Valor: "Toyota", Descricao: "Toyota" },
+          { Valor: "Triumph", Descricao: "Triumph" },
+          { Valor: "VolksWagen", Descricao: "VolksWagen" },
+          { Valor: "Volvo", Descricao: "Volvo" },
+          { Valor: "Yamaha", Descricao: "Yamaha" },
+        ]}
+        // Select={Services.TipoVeiculos.ConsultarTodos.then((i) => i.data.listaVeiculos.map((item) => ({
+        //     Valor: item.idVeiculo,
+        //     Descricao: item.descricaoTipo,
+        //   })),)}
+      />      
+      <CampoCadastro
+        Nome="modelo"
+        Descricao="Modelo"
         Tamanho={300}
         Obrigatorio
         ExibeListagem

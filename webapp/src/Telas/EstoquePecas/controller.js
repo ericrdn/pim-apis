@@ -24,8 +24,8 @@ const ExcluirRegistro = (Dados) => axios.delete(
     `${Services.urlAPIEstoquePecas}?IdEstoquePeca=${Dados.idEstoquePeca}`,
   );
 
-const NomeCadastro = 'Estoque Peça';
-const NomeCadastroPlural = 'Estoque Peças';
+const NomeCadastro = 'Uso de Peça';
+const NomeCadastroPlural = 'Uso de Peças';
 
 const RotaCadastro = '/estoquepecas';
 const RotaInclusao = '/estoquepecas/incluir';
