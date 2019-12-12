@@ -29,6 +29,12 @@ export default function ModeloCliente(props) {
         ExibeListagem
         QuantidadeCaracteres={20}
       />
+      <CampoCadastro
+        Nome="contato"
+        Descricao="Contato"
+        Tamanho={300}
+        QuantidadeCaracteres={20}
+      />
     </FormularioPadrao>
   );
 }

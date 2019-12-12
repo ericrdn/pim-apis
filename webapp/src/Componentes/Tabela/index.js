@@ -402,6 +402,7 @@ export default function EnhancedTable({
           </Table>
         </div>
         <TablePagination
+          labelRowsPerPage="Linhas por página:"
           rowsPerPageOptions={[5, 10, 25]}
           component="div"
           count={rows.length}

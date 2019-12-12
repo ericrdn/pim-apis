@@ -32,16 +32,16 @@ export default function ModeloCliente(props) {
 
       <CampoCadastro
         Nome="placa"
-        Descricao="Placa"
+        Descricao="Motorista"
         Tamanho={500}
         ExibeListagem
         QuantidadeCaracteres={20}
         Select={[]}
         DadosSelect={() =>
-          Services.Veiculos.ConsultarTodos().then(i =>
-            i.data.listaCVeiculos.map(item => ({
-              Valor: String(item.placa),
-              Descricao: `${item.placa} - ${item.marca} - ${item.modelo} - ${item.cor}`
+          Services.Usuarios.ConsultarTodos().then(i =>
+            i.data.listaUsuarios.map(item => ({
+              Valor: String(item.idUsuario),
+              Descricao: `${String(item.idUsuario)} - ${item.nome}`
             }))
           )
         }
@@ -65,14 +65,14 @@ export default function ModeloCliente(props) {
         Nome="dataIni"
         Descricao="Data Inicio"
         Tamanho={130}
-        Obrigatorio
+        
         CampoData
       />
       <CampoCadastro
         Nome="dataFim"
         Descricao="Data Final"
         Tamanho={130}
-        Obrigatorio
+        
         CampoData
       />
     </FormularioPadrao>

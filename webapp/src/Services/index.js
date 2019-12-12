@@ -25,6 +25,10 @@ export default {
     ConsultarTodos: () => axios.get(ParametrizacaoURL.urlAPITipoVeiculo)
   },
 
+  Clientes: {
+    ConsultarTodos: () => axios.get(ParametrizacaoURL.urlAPIClientes)
+  },
+
   Usuarios: {
     ConsultarTodos: () => axios.get(ParametrizacaoURL.urlAPIUsuarios)
   },
@@ -49,6 +53,10 @@ export default {
   TipoReembolso: {
     ConsultarTodos: () => axios.get(ParametrizacaoURL.urlAPITipoReembolso)
   },
+
+  Usuarios: {
+    ConsultarTodos: () => axios.get(ParametrizacaoURL.urlAPIUsuarios)
+  },  
 
   DadosGerais: {
     ConsultarDadosHome: () =>

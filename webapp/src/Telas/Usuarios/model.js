@@ -74,9 +74,18 @@ export default function ModeloCliente(props) {
       />
       <CampoCadastro
         Nome="carteiraTrabalho"
-        Descricao="Carteira de Trabalho"
+        Descricao="Cliente Responsável"
         Obrigatorio
-        Tamanho={180}
+        Tamanho={280}
+        Select={[]}
+        DadosSelect={() =>
+          Services.Clientes.ConsultarTodos().then(i =>
+            i.data.listaClientes.map(item => ({
+              Valor: String(item.idCliente),
+              Descricao: `${String(item.idCliente)} - ${String(item.nomeCliente)}`
+            }))
+          )
+        }
       />
       <CampoCadastro
         Nome="dataValidadeCnh"
