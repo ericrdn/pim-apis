@@ -21,7 +21,7 @@ export default function ModeloCliente(props) {
         TipoCampo="int"
         Select={[]}
         DadosSelect={() =>
-          Services.TipoUsuarios.ConsultarTodos().then(i =>
+          Services.TipoReembolso.ConsultarTodos().then(i =>
             i.data.listaReembolsos.map(item => ({
               Valor: String(item.idReembolso),
               Descricao: item.desReembolso
@@ -36,6 +36,15 @@ export default function ModeloCliente(props) {
         Tamanho={500}
         ExibeListagem
         QuantidadeCaracteres={20}
+        Select={[]}
+        DadosSelect={() =>
+          Services.Veiculos.ConsultarTodos().then(i =>
+            i.data.listaCVeiculos.map(item => ({
+              Valor: String(item.placa),
+              Descricao: `${item.placa} - ${item.marca} - ${item.modelo} - ${item.cor}`
+            }))
+          )
+        }
       />
       <CampoCadastro Nome="endereco" Descricao="Endereço" Tamanho={460} />
       <CampoCadastro

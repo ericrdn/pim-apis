@@ -35,6 +35,15 @@ export default function ModeloCliente(props) {
         Tamanho={500}
         ExibeListagem
         QuantidadeCaracteres={20}
+        Select={[]}
+        DadosSelect={() =>
+          Services.Veiculos.ConsultarTodos().then(i =>
+            i.data.listaCVeiculos.map(item => ({
+              Valor: String(item.placa),
+              Descricao: `${item.placa} - ${item.marca} - ${item.modelo} - ${item.cor}`
+            }))
+          )
+        }
       />
       <CampoCadastro
         Nome="descricao"

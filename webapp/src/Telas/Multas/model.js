@@ -1,6 +1,6 @@
 import React from "react";
 import { CampoCadastro, FormularioPadrao } from "../../Componentes/Formulario";
-
+import Services from "../../Services";
 // import { Container } from './styles';
 
 export default function ModeloCliente(props) {
@@ -19,6 +19,15 @@ export default function ModeloCliente(props) {
         Descricao="Placa"
         Tamanho={200}
         QuantidadeCaracteres={7}
+        Select={[]}
+        DadosSelect={() =>
+          Services.Veiculos.ConsultarTodos().then(i =>
+            i.data.listaCVeiculos.map(item => ({
+              Valor: String(item.placa),
+              Descricao: `${item.placa} - ${item.marca} - ${item.modelo} - ${item.cor}`
+            }))
+          )
+        }
       />
       <CampoCadastro
         Nome="codigoMulta"

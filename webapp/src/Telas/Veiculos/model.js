@@ -104,7 +104,7 @@ export default function ModeloCliente(props) {
 
       <CampoCadastro
         Nome="cor"
-        Descricao="Cor"
+        Descricao="Cor" 
         Tamanho={300}
         Obrigatorio
         ExibeListagem
